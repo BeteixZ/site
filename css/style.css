@@ -1,14 +1,16 @@
 :root {
     /* Colors - dark theme */
     --color-bg: #1a1b26;
-    --color-text: #a9b1d6;
+    --color-text: #b6c4fc;
     --color-heading: #c0caf5;
     --color-link: #7aa2f7;
-    --color-link-hover: #89ddff;
+    --color-link-hover: #ade8ff;
     
     /* Typography */
     --font-mono: 'JetBrains Mono', 'Fira Code', 'Menlo', 'Monaco', monospace;
     --font-sans: 'Inter', 'SF Pro Display', system-ui, sans-serif;
+    --font-header: 'Funnel Display', 'Inter', 'SF Pro Display', system-ui, sans-serif;
+
   }
   
   body {
@@ -18,9 +20,15 @@
     line-height: 1.6;
   }
   
+  p, h1, h2, h3, h4, h5, h6, li {
+    margin-left: 20px; /* 左边距 */
+    margin-right: 20px; /* 右边距 */
+}
+
+
   h1, h2, h3, h4, h5, h6 {
     color: var(--color-heading);
-    font-family: var(--font-sans);
+    font-family: var(--font-header);
   }
   
   a {
@@ -32,22 +40,62 @@
   a:hover {
     color: var(--color-link-hover);
   }
-  
-  /* Navigation styles */
-  .nav {
-    margin-bottom: 2rem;
+.nav {
+    display: flex;
+    justify-content: flex-end;
     padding: 1rem 0;
     border-bottom: 1px solid var(--color-link);
-  }
-  
-  .nav-list {
+}
+
+.nav-list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 1.5rem;
-  }
-  
-  .nav-item a {
+    gap: 0rem;
+    align-items: center;
+}
+
+.nav-item a {
     font-weight: bold;
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color 0.5s ease;
+}
+
+.nav-item a:hover {
+    color: var(--color-link-hover);
+}
+
+/* links */
+a {
+  color: var(--accent-color);
+
+  &.back-link {
+    margin-bottom: var(--spacing-base);
   }
+
+  & > img {
+    border: var(--border-default);
+  }
+
+  & svg {
+    stroke: var(--accent-color);
+  }
+
+  &:is(:hover, :focus, :active) {
+    color: var(--accent-color-hover);
+    transition: color var(--transition-duration-default)
+      var(--transition-ease-in-out);
+
+    & > img {
+      border: var(--border-default-hover);
+      transition: border var(--transition-duration-default)
+        var(--transition-ease-in-out);
+    }
+
+    & > svg {
+      stroke: var(--accent-color-hover);
+    }
+  }
+}
