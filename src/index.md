@@ -1,7 +1,7 @@
 ---
-title: "Welcome to My 11ty Site"
+title: "Bindow's Page"
 layout: layouts/base.njk
 ---
-# Welcome to My 11ty Site
+# Bindow's Page
 
-This is my personal website built with 11ty and hosted on GitHub Pages.
+Test message. Greeting from Macau.
