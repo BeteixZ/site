@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         {% include "layouts/components/nav.njk" %}
-        {{ content | safe }}
+        {{ content | mark | safe }}
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -77,5 +77,6 @@
         setInterval(updateBadge, 30000);
       });
     </script>
+    <script src="{{ '/assets/js/script.js' | url }}"></script>
 </body>
 </html>

@@ -10,6 +10,13 @@ export default async function(eleventyConfig) {
     errorOnMissing: true
   });
 
+  // 定义过滤器
+  eleventyConfig.addFilter("mark", function(content) {
+    return content.replace(/==(.*?)==/g, "<mark>$1</mark>");
+  });
+
+  eleventyConfig.addPassthroughCopy("src/assets");
+
   // Function to quantize a color value to reduce color space
   const quantizeColor = (r, g, b) => {
     // Reduce to 4 bits per channel (4096 total colors)
