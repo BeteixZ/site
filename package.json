@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "eleventy --serve",
     "build": "eleventy"
   },
@@ -23,5 +22,9 @@
     "url": "https://github.com/BeteixZ/bindow.github.io/issues"
   },
   "homepage": "https://github.com/BeteixZ/bindow.github.io#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "canvas": "^3.0.1",
+    "node-fetch": "^3.3.2"
+  }
 }
