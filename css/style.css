@@ -34,6 +34,25 @@
     font-family: var(--font-header);
   }
 
+blockquote {
+    background-color: #0c5c6e; /* Example background color */
+    border-left: 4px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    font-style: italic;
+    position: relative;
+}
+
+blockquote::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background: #666; /* Example color for underline */
+}
+
   mark {
     background-color: transparent;
     color: inherit;
