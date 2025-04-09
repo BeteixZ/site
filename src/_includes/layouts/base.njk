@@ -4,17 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title | default("Bindow") }}</title>
+    <meta name="description" content="{{ description | default("Personal website of Bindow") }}">
     <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
     <!-- Add Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add favicon (you'll need to create these files) -->
+    <link rel="icon" href="{{ '/assets/favicon.ico' | url }}" type="image/x-icon">
+</head>
 <body>
-    <div class="container">
-        {% include "layouts/components/nav.njk" %}
+    <header class="nav">
+        <div class="container">
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="{{ '/' | url }}">Home</a></li>
+                    <li class="nav-item"><a href="{{ '/about/' | url }}">About</a></li>
+                    <li class="nav-item"><a href="{{ '/projects/' | url }}">Projects</a></li>
+                    <li class="nav-item"><a href="{{ '/contact/' | url }}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
         {{ content | mark | safe }}
-    </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© {{ page.date.getFullYear() if page.date else "2024" }} Bindow. Built with <a href="https://www.11ty.dev/">11ty</a>.</p>
+            <p class="mt-1">
+                <a href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer">GitHub</a> • 
+                <a href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer">Last.fm</a>
+            </p>
+        </div>
+    </footer>
+
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        // Mark animation
+        let observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        
+        document.querySelectorAll('mark').forEach(mark => {
+          observer.observe(mark);
+        });
+
+        // Last.fm badge color update
         const badgeImg = document.querySelector('img[src*="shields.io/endpoint"]');
         if (!badgeImg) return;
 
@@ -77,6 +119,5 @@
         setInterval(updateBadge, 30000);
       });
     </script>
-    <script src="{{ '/assets/js/script.js' | url }}"></script>
 </body>
 </html>
