@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>当自我成长落入商品竞争逻辑</title>
+    <meta name="description" content="Personal website of Bindow">
     <link rel="stylesheet" href="/site/css/style.css">
     <!-- Add Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add favicon (you'll need to create these files) -->
+    <link rel="icon" href="/site/assets/favicon.ico" type="image/x-icon">
+</head>
 <body>
-    <div class="container">
-        </nav class="nav">
-<ul class="nav-list">
-  <li class="nav-item"><a href="/site/">Home</a></li>
-  <li class="nav-item"><a href="/site/about/">About</a></li>
-  <li class="nav-item"><a href="/site/projects/">Projects</a></li>
-  <li class="nav-item"><a href="/site/contact/">Contact</a></li>
-</ul>
+    <header class="nav">
+        <div class="container">
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="/site/">Home</a></li>
+                    <li class="nav-item"><a href="/site/about/">About</a></li>
+                    <li class="nav-item"><a href="/site/projects/">Projects</a></li>
+                    <li class="nav-item"><a href="/site/contact/">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
         <h1>当自我成长落入商品竞争逻辑</h1>
 <blockquote>
 <p>作者：陀思妥利卡拉拉</p>
@@ -54,9 +64,35 @@
 <p><mark>你可以平凡，可以不那么积极，可以不那么高能量，但你不放弃自己的自主性，也不丢弃自己的自我。</mark></p>
 <p>如果我们能跳出只以实用和功利为导向的思维方式，重拾主观感受的原始能力，获得对世界和自我的直观洞察，才有可能不会在这种潮流中错过自己真正热爱的东西，由此我们就能创造出生活的艺术，让自我形塑，而不让自我成长，从而扎根到生活的诗性中去。</p>
 
-    </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Bindow. Built with <a href="https://www.11ty.dev/">11ty</a>.</p>
+            <p class="mt-1">
+                <a href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer">GitHub</a> • 
+                <a href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer">Last.fm</a>
+            </p>
+        </div>
+    </footer>
+
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        // Mark animation
+        let observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        
+        document.querySelectorAll('mark').forEach(mark => {
+          observer.observe(mark);
+        });
+
+        // Last.fm badge color update
         const badgeImg = document.querySelector('img[src*="shields.io/endpoint"]');
         if (!badgeImg) return;
 
@@ -119,6 +155,5 @@
         setInterval(updateBadge, 30000);
       });
     </script>
-    <script src="/site/assets/js/script.js"></script>
 </body>
 </html>

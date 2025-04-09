@@ -4,40 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bindow&#39;s Page</title>
+    <meta name="description" content="Personal website of Bindow - Math PhD, music nerd, and astronomy enthusiast">
     <link rel="stylesheet" href="/site/css/style.css">
     <!-- Add Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add favicon (you'll need to create these files) -->
+    <link rel="icon" href="/site/assets/favicon.ico" type="image/x-icon">
+</head>
 <body>
-    <div class="container">
-        </nav class="nav">
-<ul class="nav-list">
-  <li class="nav-item"><a href="/site/">Home</a></li>
-  <li class="nav-item"><a href="/site/about/">About</a></li>
-  <li class="nav-item"><a href="/site/projects/">Projects</a></li>
-  <li class="nav-item"><a href="/site/contact/">Contact</a></li>
-</ul>
-        <hr>
-<h1>Bindow's Page</h1>
-<p>Hey, welcome to my page!</p>
-<h2>Latest Song Played</h2>
-<p><a href="https://www.last.fm/user/Beteix"><img src="https://img.shields.io/endpoint?color=blueviolet&amp;style=for-the-badge&amp;url=https://lastfm-last-played.biancarosa.com.br/Beteix/latest-song?format=shields.io" alt="Latest Song Played"></a></p>
-<h2>Latest Album Run Down</h2>
-<p><img src="https://api.listenbrainz.org/1/art/designer-top-10/Beteix/this_month/450" alt="Album Art"></p>
-<h2>Recent Updates</h2>
-<ul>
-<li><a href="/site/articles/when-self-growth-falls-into-the-logic-of-commercial-competition/">当自我成长落入商品竞争逻辑</a></li>
-</ul>
-<h2>Quick Links</h2>
-<ul>
-<li><a href="/site/projects/">Check out my latest project</a></li>
-<li><a href="/site/about/">Learn more about me</a></li>
-<li><a href="/site/contact/">Get in touch</a></li>
-</ul>
+    <header class="nav">
+        <div class="container">
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="/site/">Home</a></li>
+                    <li class="nav-item"><a href="/site/about/">About</a></li>
+                    <li class="nav-item"><a href="/site/projects/">Projects</a></li>
+                    <li class="nav-item"><a href="/site/contact/">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    </div>
+    <main class="container">
+        <div class="home-section">
+  <h1>Welcome to My Corner of the Web</h1>
+  <p>Math PhD. Music nerd. Astronomy enthusiast. Currently working on solving partial differential equations using machine learning.</p>
+</div>
+<div class="home-section">
+  <h2 class="home-heading">Currently Listening</h2>
+<p><a href="https://www.last.fm/user/Beteix"><img src="https://img.shields.io/endpoint?color=blueviolet&amp;style=for-the-badge&amp;url=https://lastfm-last-played.biancarosa.com.br/Beteix/latest-song?format=shields.io" alt="Latest Song Played"></a></p>
+  <div class="mt-2 mb-3">
+    <img src="https://api.listenbrainz.org/1/art/designer-top-10/Beteix/this_month/450" alt="My Top Albums This Month" />
+  </div>
+</div>
+<div class="home-section">
+  <h2 class="home-heading">Recent Writings</h2>
+  <div class="article">
+    <h3 class="mb-1"><a href="/site/articles/when-self-growth-falls-into-the-logic-of-commercial-competition/">当自我成长落入商品竞争逻辑</a></h3>
+    <div class="article-meta">April 2024</div>
+    <p>When self-growth falls into the logic of commercial competition - an exploration of how modern self-improvement narratives often serve capitalist interests rather than genuine personal development.</p>
+  </div>
+</div>
+<div class="home-section">
+  <h2 class="home-heading">Connect & Explore</h2>
+  <ul>
+    <li><a href="/site/projects/">View my research and projects</a></li>
+    <li><a href="/site/about/">Learn more about my background</a></li>
+    <li><a href="/site/contact/">Get in touch</a></li>
+  </ul>
+</div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Bindow. Built with <a href="https://www.11ty.dev/">11ty</a>.</p>
+            <p class="mt-1">
+                <a href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer">GitHub</a> • 
+                <a href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer">Last.fm</a>
+            </p>
+        </div>
+    </footer>
+
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        // Mark animation
+        let observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        
+        document.querySelectorAll('mark').forEach(mark => {
+          observer.observe(mark);
+        });
+
+        // Last.fm badge color update
         const badgeImg = document.querySelector('img[src*="shields.io/endpoint"]');
         if (!badgeImg) return;
 
@@ -100,6 +145,5 @@
         setInterval(updateBadge, 30000);
       });
     </script>
-    <script src="/site/assets/js/script.js"></script>
 </body>
 </html>

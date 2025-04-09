@@ -3,28 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>About Me</title>
+    <meta name="description" content="Math PhD, music nerd, and astronomy enthusiast - Learn more about Bindow">
     <link rel="stylesheet" href="/site/css/style.css">
     <!-- Add Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add favicon (you'll need to create these files) -->
+    <link rel="icon" href="/site/assets/favicon.ico" type="image/x-icon">
+</head>
 <body>
-    <div class="container">
-        </nav class="nav">
-<ul class="nav-list">
-  <li class="nav-item"><a href="/site/">Home</a></li>
-  <li class="nav-item"><a href="/site/about/">About</a></li>
-  <li class="nav-item"><a href="/site/projects/">Projects</a></li>
-  <li class="nav-item"><a href="/site/contact/">Contact</a></li>
-</ul>
-        <h1>About Me</h1>
-<p>A math PhD. Music nerd. Love astronomy and interested in global climate system.</p>
-<p>I'm currently working on solving partial differential equations using machining learning.</p>
-<p>I used to maintain a WordPress website <a href="https://bindow.top">bindow.top</a>, and it's unproductive and heavy. So here we are using 11ty.</p>
+    <header class="nav">
+        <div class="container">
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="/site/">Home</a></li>
+                    <li class="nav-item"><a href="/site/about/">About</a></li>
+                    <li class="nav-item"><a href="/site/projects/">Projects</a></li>
+                    <li class="nav-item"><a href="/site/contact/">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    </div>
+    <main class="container">
+        <h1>About Me</h1>
+<div class="about-section">
+  <h2>Background</h2>
+  <p>I'm a mathematics PhD with a passion for solving complex problems. My current research focuses on applying machine learning techniques to solve partial differential equations, bridging the gap between traditional mathematical methods and modern computational approaches.</p>
+</div>
+<div class="about-section">
+  <h2>Interests</h2>
+  <p>Beyond mathematics, I'm deeply interested in:</p>
+  <ul>
+    <li><strong>Music</strong> - From Art Pop to indie, I enjoy diverse genres</li>
+    <li><strong>Astronomy</strong> - Fascinated by the cosmos and its overwhelming elegance</li>
+    <li><strong>Global Climate Systems</strong> - Studying the complex dynamics of our planet's climate</li>
+  </ul>
+</div>
+<div class="about-section">
+  <h2>This Site</h2>
+  <p>I used to maintain a WordPress website at <a href="https://bindow.top" target="_blank" rel="noopener">bindow.top</a>, but found it unnecessarily complex and resource-intensive. This site is built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">11ty</a>, a simpler and more lightweight static site generator.</p>
+  <p>The design is intentionally minimal, focusing on content and readability while maintaining a distinct aesthetic that reflects my appreciation for clean, functional design.</p>
+</div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Bindow. Built with <a href="https://www.11ty.dev/">11ty</a>.</p>
+            <p class="mt-1">
+                <a href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer">GitHub</a> • 
+                <a href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer">Last.fm</a>
+            </p>
+        </div>
+    </footer>
+
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        // Mark animation
+        let observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        
+        document.querySelectorAll('mark').forEach(mark => {
+          observer.observe(mark);
+        });
+
+        // Last.fm badge color update
         const badgeImg = document.querySelector('img[src*="shields.io/endpoint"]');
         if (!badgeImg) return;
 
@@ -87,6 +137,5 @@
         setInterval(updateBadge, 30000);
       });
     </script>
-    <script src="/site/assets/js/script.js"></script>
 </body>
 </html>
