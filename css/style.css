@@ -8,7 +8,7 @@
   --color-link: #7aa2f7;
   --color-link-hover: #b4cdff;
   --color-accent: #bb9af7;
-  --color-highlight: rgba(0, 179, 89, 0.5);
+  --color-highlight: rgba(0, 220, 100, 0.6); /* Brighter highlight color for better visibility */
   --color-blockquote-bg: rgba(12, 92, 110, 0.3);
   --color-nav-bg: rgba(15, 17, 23, 0.8);
   
@@ -123,11 +123,19 @@ mark {
   background-size: 0% 40%;
   background-position: 0 90%;
   padding: 0 0.2em;
-  transition: background-size 0.3s ease-in-out;
 }
 
 mark.animate {
-  background-size: 100% 40%;
+  animation: highlight 1.5s ease-in-out forwards;
+}
+
+@keyframes highlight {
+  0% {
+    background-size: 0% 40%;
+  }
+  100% {
+    background-size: 100% 40%;
+  }
 }
 
 /* Links */

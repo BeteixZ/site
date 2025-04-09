@@ -58,21 +58,12 @@
         </div>
     </footer>
 
+    <!-- Dedicated highlight script for better animation control -->
+    <script src="/site/assets/js/highlight.js"></script>
+    
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // Mark animation
-        let observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('animate');
-              observer.unobserve(entry.target);
-            }
-          });
-        });
-        
-        document.querySelectorAll('mark').forEach(mark => {
-          observer.observe(mark);
-        });
+        // Last.fm badge functionality - this is kept separate from the highlight script
 
         // Last.fm badge color update
         const badgeImg = document.querySelector('img[src*="shields.io/endpoint"]');
