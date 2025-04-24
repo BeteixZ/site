@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如果……</title>
+    <meta name="description" content="Personal website of Bindow">
+    <link rel="stylesheet" href="/site/css/style.css">
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add favicon (you'll need to create these files) -->
+    <link rel="icon" href="/site/assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="nav">
+        <div class="container">
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="/site/">Home</a></li>
+                    <li class="nav-item"><a href="/site/about/">About</a></li>
+                    <li class="nav-item"><a href="/site/projects/">Projects</a></li>
+                    <li class="nav-item"><a href="/site/contact/">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <blockquote>
+<p>當我看這世界的目光愈發兇惡，它是否也在秘密爲我準備葬禮？</p>
+</blockquote>
+<p>如果，我被文字奴役、被畫面奴役、被音樂奴役，無處可逃，那我還剩下什麽？</p>
+<p>真切地感受到，我們之間的紐帶已經斷裂，這是成長的陣痛嗎，又或者，我已經成爲無主的垃圾，在死寂的空間中漂流？</p>
+<p>我恨這世界的價值觀，它讓我們變成工作的墳墓。</p>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Bindow. Built with <a href="https://www.11ty.dev/">11ty</a>.</p>
+            <p class="mt-1">
+                <a href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer">GitHub</a> • 
+                <a href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer">Last.fm</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Dedicated highlight script for better animation control -->
+    <script src="/site/assets/js/highlight.js"></script>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Last.fm badge functionality - this is kept separate from the highlight script
+
+        // Last.fm badge color update
+        const badgeImg = document.querySelector('img[src*="shields.io/endpoint"]');
+        if (!badgeImg) return;
+
+        async function updateBadge() {
+          try {
+            const response = await fetch('https://lastfm-last-played.biancarosa.com.br/Beteix/latest-song');
+            const data = await response.json();
+            
+            const img = new Image();
+            img.crossOrigin = 'Anonymous';
+            img.src = data.track.image.find(img => img.size === 'small')['#text'];
+            
+            img.onload = function() {
+              const canvas = document.createElement('canvas');
+              const ctx = canvas.getContext('2d');
+              canvas.width = img.width;
+              canvas.height = img.height;
+              ctx.drawImage(img, 0, 0);
+              
+              const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+              const pixels = imageData.data;
+              
+              const colorFreq = new Map();
+              
+              for (let i = 0; i < pixels.length; i += 16) {
+                const r = pixels[i];
+                const g = pixels[i + 1];
+                const b = pixels[i + 2];
+                
+                if ((r + g + b) / 3 < 20 || (r + g + b) / 3 > 235) continue;
+                
+                const key = `${Math.floor(r/16)*16},${Math.floor(g/16)*16},${Math.floor(b/16)*16}`;
+                colorFreq.set(key, (colorFreq.get(key) || 0) + 1);
+              }
+              
+              let dominantColor = '0,0,0';
+              let maxFreq = 0;
+              for (const [color, freq] of colorFreq.entries()) {
+                if (freq > maxFreq) {
+                  maxFreq = freq;
+                  dominantColor = color;
+                }
+              }
+              
+              const [r, g, b] = dominantColor.split(',').map(Number);
+              const color = ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+              
+              // Update badge URL with new color
+              const currentUrl = new URL(badgeImg.src);
+              currentUrl.searchParams.set('color', color);
+              badgeImg.src = currentUrl.toString();
+            };
+          } catch (error) {
+            console.error('Error:', error);
+          }
+        }
+
+        // Update initially and every 30 seconds
+        updateBadge();
+        setInterval(updateBadge, 30000);
+      });
+    </script>
+</body>
+</html>
