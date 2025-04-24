@@ -21,6 +21,12 @@ description: "Personal website of Bindow - Math PhD, music nerd, and astronomy e
 
 <div class="home-section">
   <h2 class="home-heading">Recent Writings</h2>
+
+  <div class="article">
+    <h3 class="mb-1"><a href="/site/articles/when-self-growth-falls-into-the-logic-of-commercial-competition/">如果……</a></h3>
+    <div class="article-meta">April 2025</div>
+    <p>我不再相信這個世界……</p>
+  </div>
   
   <div class="article">
     <h3 class="mb-1"><a href="/site/articles/when-self-growth-falls-into-the-logic-of-commercial-competition/">当自我成长落入商品竞争逻辑</a></h3>
