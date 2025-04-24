@@ -23,7 +23,7 @@ description: "Personal website of Bindow - Math PhD, music nerd, and astronomy e
   <h2 class="home-heading">Recent Writings</h2>
 
   <div class="article">
-    <h3 class="mb-1"><a href="/site/articles/what_if?/">如果……</a></h3>
+    <h3 class="mb-1"><a href="/site/articles/what_if/">如果……</a></h3>
     <div class="article-meta">April 2025</div>
     <p>我不再相信這個世界……</p>
   </div>
