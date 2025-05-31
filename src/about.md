@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 title: About Me
-description: "Math PhD, music nerd, and astronomy enthusiast - Learn more about Bindow"
+description: "Music nerd, and astronomy enthusiast - Learn more about Bindow"
 ---
 
 # About Me
