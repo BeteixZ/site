@@ -6,4 +6,4 @@ title: Contact
 # Contact
 I tend to be anonymous on the internet. 
 
-Love & Peace.
+Love & Peace. Hopefully I can be.
