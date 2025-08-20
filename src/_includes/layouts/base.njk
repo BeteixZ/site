@@ -32,7 +32,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>© {{ page.date.getFullYear() if page.date else "2024" }} Bindow. Built with <a href="https://www.11ty.dev/">11ty</a>.</p>
+            <p>© {{ page.date.getFullYear() if page.date else "2025" }} Bindow. Built with <a href="https://www.11ty.dev/">11ty</a>.</p>
             <p class="mt-1">
                 <a href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer">GitHub</a> • 
                 <a href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer">Last.fm</a>
@@ -43,6 +43,9 @@
     <!-- Dedicated highlight script for better animation control -->
     <script src="{{ '/assets/js/highlight.js' | url }}"></script>
     
+    <!-- Only when url is /site/ excute -->
+
+    {% if page.url == '/site/' %}
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         // Last.fm badge functionality - this is kept separate from the highlight script
@@ -110,5 +113,7 @@
         setInterval(updateBadge, 30000);
       });
     </script>
+    {% endif %}
+
 </body>
 </html>

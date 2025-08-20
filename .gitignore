@@ -1,2 +1,5 @@
-node_modules/
-public/
+/node_modules
+/public
+/distill
+/architecture.md
+/Distill架构.md

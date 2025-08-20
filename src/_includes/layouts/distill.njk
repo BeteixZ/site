@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ '/assets/js/distill.v2.js' | url }}"></script>    
+    <script src="{{ '/assets/js/highlight.js' | url }}"></script>
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+    <!-- Import vega-embed -->
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@v6"></script>
+
+    <script src="{{ '/assets/distill/public/post--gnn-intro.77de5100.js' | url }}"></script>
+
+    <!-- Mathjax -->
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+
+<!-- End Mathjax -->
+    <title>{{ title | default("Bindow") }}</title>
+    <meta name="description" content="{{ description | default("Personal website of Bindow") }}">
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/visualizations/layerwise_trace.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/visualizations/shuffle.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/visualizations/text-as-graph.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/visualizations/pca-layers.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/visualizations/playground/gnn-playground.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/visualizations/mols-as-graph.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/visualizations/shuffle-sm.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/visualizations/table.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/visualizations/graph-description.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/visualizations/graph-description-embeddings.css' | url }}">
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add favicon (you'll need to create these files) -->
+    <link rel="icon" href="{{ '/assets/favicon.ico' | url }}" type="image/x-icon">
+</head>
+<body>
+    <header class="nav">
+        <div class="container">
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="{{ '/' | url }}">Home</a></li>
+                    <li class="nav-item"><a href="{{ '/about/' | url }}">About</a></li>
+                    <li class="nav-item"><a href="{{ '/projects/' | url }}">Projects</a></li>
+                    <li class="nav-item"><a href="{{ '/contact/' | url }}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        {{ content | mark | safe }}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© {{ page.date.getFullYear() if page.date else "2025" }} Bindow. Built with <a href="https://www.11ty.dev/">11ty</a>.</p>
+            <p class="mt-1">
+                <a href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer">GitHub</a> • 
+                <a href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer">Last.fm</a>
+            </p>
+        </div>
+    </footer>
+
+
+</body>
+</html>

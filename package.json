@@ -25,6 +25,17 @@
   "description": "",
   "dependencies": {
     "canvas": "^3.0.1",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "d3": "^5.9.7",
+    "d3-jetpack": "^2.0.20",
+    "d3-swoopy-drag": "^0.0.3",
+    "doc2txt": "^0.0.3",
+    "graph": "^0.2.0",
+    "marked": "^1.1.0",
+    "ml-pca": "^4.0.1",
+    "seedrandom": "2.4.3",
+    "tfjs": "^0.6.0",
+    "underscore": "^1.10.2",
+    "yarn": "^1.22.10"
   }
 }
