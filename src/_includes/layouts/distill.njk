@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="{{ '/assets/js/distill.v2.js' | url }}"></script>    
-    <script src="{{ '/assets/js/highlight.js' | url }}"></script>
+    
+    <script src="https://distill.pub/template.v2.js"></script>
+    <script src="{{ '/assets/js/highlight.js' }}"></script>
     <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
     <!-- Import vega-embed -->
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@v6"></script>
+    {% for cssPath in 'css' | distillFiles %}
+        <link rel="stylesheet" href="{{ cssPath }}">
+    {% endfor %}
 
-    <script src="{{ '/assets/distill/public/post--gnn-intro.77de5100.js' | url }}"></script>
+    {% for jsPath in 'js' | distillFiles %}
+        <script src="{{ jsPath }}"></script>
+    {% endfor %}
 
     <!-- Mathjax -->
     <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -23,16 +29,6 @@
     <title>{{ title | default("Bindow") }}</title>
     <meta name="description" content="{{ description | default("Personal website of Bindow") }}">
     <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
-    <link rel="stylesheet" href="{{ '/assets/visualizations/layerwise_trace.css' | url }}">
-    <link rel="stylesheet" href="{{ '/assets/visualizations/shuffle.css' | url }}">
-    <link rel="stylesheet" href="{{ '/assets/visualizations/text-as-graph.css' | url }}">
-    <link rel="stylesheet" href="{{ '/assets/visualizations/pca-layers.css' | url }}">
-    <link rel="stylesheet" href="{{ '/assets/visualizations/playground/gnn-playground.css' | url }}">
-    <link rel="stylesheet" href="{{ '/assets/visualizations/mols-as-graph.css' | url }}">
-    <link rel="stylesheet" href="{{ '/assets/visualizations/shuffle-sm.css' | url }}">
-    <link rel="stylesheet" href="{{ '/assets/visualizations/table.css' | url }}">
-    <link rel="stylesheet" href="{{ '/assets/visualizations/graph-description.css' | url }}">
-    <link rel="stylesheet" href="{{ '/assets/visualizations/graph-description-embeddings.css' | url }}">
     <!-- Add Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">

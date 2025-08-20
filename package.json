@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build:distill": "cd src/assets/distill && npm run build",
+    "copy:distill": "shx rm -rf src/assets/js/* && shx rm -rf src/assets/css/* && shx rm -rf src/assets/images/distill/* && shx mkdir -p src/assets/js src/assets/css src/assets/images/distill && shx cp src/assets/distill/public/*.js src/assets/js/ && shx cp src/assets/distill/public/*.css src/assets/css/ && shx cp src/assets/distill/public/*.png src/assets/images/distill/ && shx cp -r src/assets/distill/public/graph-level src/assets/images/distill/ && shx cp -r src/assets/distill/public/x-to-graph src/assets/images/distill/",
+    "build": "npm-run-all build:distill copy:distill eleventy",
+    "eleventy": "eleventy"
   },
   "keywords": [],
   "author": "",
@@ -36,6 +39,9 @@
     "seedrandom": "2.4.3",
     "tfjs": "^0.6.0",
     "underscore": "^1.10.2",
-    "yarn": "^1.22.10"
+    "yarn": "^1.22.10",
+    "shx": "^0.3.4",
+    "npm-run-all": "^4.1.5"
   }
+  
 }
