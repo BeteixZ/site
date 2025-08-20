@@ -11,6 +11,7 @@ export default async function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ 'src/assets/images': 'assets/images' });
   eleventyConfig.addPassthroughCopy({ 'src/css': 'css' });
   eleventyConfig.addPassthroughCopy({ 'src/js': 'js' });
+  eleventyConfig.addPassthroughCopy({ 'src/assets/distill/public/': '/public/articles/GNNs/Intro2GNN' });
 
   // 插件
   eleventyConfig.addPlugin(tablerIcons, {
