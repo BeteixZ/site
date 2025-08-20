@@ -4,15 +4,16 @@ import fs from 'fs';
 import path from 'path';
 
 export default async function(eleventyConfig) {
-  // 复制静态资源
-  eleventyConfig.addPassthroughCopy({ 'src/assets/js':  'assets/js' });
-  eleventyConfig.addPassthroughCopy({ 'src/assets/css': 'assets/css' });
-  //eleventyConfig.addPassthroughCopy({ 'src/assets/distill': 'assets/distill' });
-  eleventyConfig.addPassthroughCopy({ 'src/assets/images': 'assets/images' });
-  eleventyConfig.addPassthroughCopy({ 'src/css': 'css' });
-  eleventyConfig.addPassthroughCopy({ 'src/js': 'js' });
-  eleventyConfig.addPassthroughCopy({ 'src/assets/distill/public/': '/public/articles/GNNs/Intro2GNN' });
+  const pathPrefix = process.env.NODE_ENV === 'production' ? '/site' : '';
 
+  eleventyConfig.addPassthroughCopy({ 'src/assets/js': `${pathPrefix}/assets/js` });
+  eleventyConfig.addPassthroughCopy({ 'src/assets/css': `${pathPrefix}/assets/css` });
+  eleventyConfig.addPassthroughCopy({ 'src/assets/images': `${pathPrefix}/assets/images` });
+  eleventyConfig.addPassthroughCopy({ 'src/css': `${pathPrefix}/css` });
+  eleventyConfig.addPassthroughCopy({ 'src/js': `${pathPrefix}/js` });
+  eleventyConfig.addPassthroughCopy({ 
+    'src/assets/distill/public/': `${pathPrefix}/public/articles/GNNs/Intro2GNN` 
+  });
   // 插件
   eleventyConfig.addPlugin(tablerIcons, {
     className: 'icon',
@@ -44,7 +45,7 @@ export default async function(eleventyConfig) {
       input: 'src',
       output: 'public'
     },
-    pathPrefix: '/'
+    pathPrefix: pathPrefix
   };
 }
 
