@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve",
-    "build:distill": "cd src/assets/distill && npm run build",
+    "build:distill": "cd src/assets/distill && npm install && npm run build",
     "copy:distill": "shx rm -rf src/assets/js/* && shx rm -rf src/assets/css/* && shx rm -rf src/assets/images/distill/* && shx mkdir -p src/assets/js src/assets/css src/assets/images/distill && shx cp src/assets/distill/public/*.js src/assets/js/ && shx cp src/assets/distill/public/*.css src/assets/css/ && shx cp src/assets/distill/public/*.png src/assets/images/distill/ && shx cp -r src/assets/distill/public/graph-level src/assets/images/distill/ && shx cp -r src/assets/distill/public/x-to-graph src/assets/images/distill/",
     "build": "npm-run-all build:distill copy:distill eleventy",
     "eleventy": "eleventy"
