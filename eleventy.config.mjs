@@ -4,16 +4,15 @@ import fs from 'fs';
 import path from 'path';
 
 export default async function(eleventyConfig) {
-  const pathPrefix = process.env.NODE_ENV === 'production' ? '/site' : '';
+  // 复制静态资源
+  eleventyConfig.addPassthroughCopy({ 'src/assets/js':  'assets/js' });
+  eleventyConfig.addPassthroughCopy({ 'src/assets/css': 'assets/css' });
+  //eleventyConfig.addPassthroughCopy({ 'src/assets/distill': 'assets/distill' });
+  eleventyConfig.addPassthroughCopy({ 'src/assets/images': 'assets/images' });
+  eleventyConfig.addPassthroughCopy({ 'src/css': 'css' });
+  eleventyConfig.addPassthroughCopy({ 'src/js': 'js' });
+  eleventyConfig.addPassthroughCopy({ 'src/assets/distill/public/': '/public/articles/G' });
 
-  eleventyConfig.addPassthroughCopy({ 'src/assets/js': `${pathPrefix}/assets/js` });
-  eleventyConfig.addPassthroughCopy({ 'src/assets/css': `${pathPrefix}/assets/css` });
-  eleventyConfig.addPassthroughCopy({ 'src/assets/images': `${pathPrefix}/assets/images` });
-  eleventyConfig.addPassthroughCopy({ 'src/css': `${pathPrefix}/css` });
-  eleventyConfig.addPassthroughCopy({ 'src/js': `${pathPrefix}/js` });
-  eleventyConfig.addPassthroughCopy({ 
-    'src/assets/distill/public/': `${pathPrefix}/public/articles/GNNs/Intro2GNN` 
-  });
   // 插件
   eleventyConfig.addPlugin(tablerIcons, {
     className: 'icon',
@@ -30,13 +29,16 @@ export default async function(eleventyConfig) {
     `<img alt="Last.fm" src="https://img.shields.io/endpoint?color=blueviolet&style=for-the-badge&url=https://lastfm-last-played.biancarosa.com.br/Beteix/latest-song?format=shields.io">`
   );
 
-  eleventyConfig.addFilter('distillFiles', (ext) => {
-    const dir   = path.join(process.cwd(), 'src', 'assets', ext === 'js' ? 'js' : 'css');
-    if (!fs.existsSync(dir)) return [];
-    return fs
-      .readdirSync(dir)
-      .map(f => `/assets/${ext === 'js' ? 'js' : 'css'}/${f}`);
-  });
+const pathPrefix = process.env.NODE_ENV === 'production' ? '/site' : '';
+
+eleventyConfig.addFilter('distillFiles', (ext) => {
+  const dir = path.join(process.cwd(), 'src', 'assets', ext === 'js' ? 'js' : 'css');
+  if (!fs.existsSync(dir)) return [];
+  
+  return fs
+    .readdirSync(dir)
+    .map(f => `${pathPrefix}/assets/${ext === 'js' ? 'js' : 'css'}/${f}`);
+});
 
   console.log('[11ty] filters registered:', eleventyConfig.filters);
 
