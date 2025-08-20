@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/site/assets/js/distill.v2.js"></script>    
+    <script src="/site/assets/js/highlight.js"></script>
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+    <!-- Import vega-embed -->
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@v6"></script>
+
+    <script src="/site/assets/distill/public/post--gnn-intro.77de5100.js"></script>
+
+    <!-- Mathjax -->
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+
+<!-- End Mathjax -->
+    <title>An Introduction to Graph Neural Networks</title>
+    <meta name="description" content="Personal website of Bindow">
+    <link rel="stylesheet" href="/site/css/style.css">
+    <link rel="stylesheet" href="/site/assets/visualizations/layerwise_trace.css">
+    <link rel="stylesheet" href="/site/assets/visualizations/shuffle.css">
+    <link rel="stylesheet" href="/site/assets/visualizations/text-as-graph.css">
+    <link rel="stylesheet" href="/site/assets/visualizations/pca-layers.css">
+    <link rel="stylesheet" href="/site/assets/visualizations/playground/gnn-playground.css">
+    <link rel="stylesheet" href="/site/assets/visualizations/mols-as-graph.css">
+    <link rel="stylesheet" href="/site/assets/visualizations/shuffle-sm.css">
+    <link rel="stylesheet" href="/site/assets/visualizations/table.css">
+    <link rel="stylesheet" href="/site/assets/visualizations/graph-description.css">
+    <link rel="stylesheet" href="/site/assets/visualizations/graph-description-embeddings.css">
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add favicon (you'll need to create these files) -->
+    <link rel="icon" href="/site/assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="nav">
+        <div class="container">
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="/site/">Home</a></li>
+                    <li class="nav-item"><a href="/site/about/">About</a></li>
+                    <li class="nav-item"><a href="/site/projects/">Projects</a></li>
+                    <li class="nav-item"><a href="/site/contact/">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>An Introduction to Graph Neural Networks</h1>
+<p>Neural networks have been adapted to leverage the structure and properties of graphs. We explore the components needed for building a graph neural network - and motivate the design choices behind them.</p>
+  <figure class=teaser>
+    <div id=layerwise-trace> </div>
+    <figcaption>
+Hover over a node in the diagram below to see how it accumulates information from nodes around it through the layers of the network.
+    </figcaption>
+</figure>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Bindow. Built with <a href="https://www.11ty.dev/">11ty</a>.</p>
+            <p class="mt-1">
+                <a href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer">GitHub</a> • 
+                <a href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer">Last.fm</a>
+            </p>
+        </div>
+    </footer>
+
+
+</body>
+</html>
