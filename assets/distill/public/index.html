@@ -36,38 +36,36 @@
 
 
 <d-front-matter>
-  <script type="text/json">
-    {
-    "title": "A Gentle Introduction to Graph Neural Networks",
-    "description": "What components are needed for building learning algorithms that leverage the structure and properties of graphs?",
-    "authors": [{
-      "author": "Benjamin Sanchez-Lengeling",
-      "affiliations": [{
-        "name": "Google Research",
-        "affiliationURL": "https://research.google/teams/brain/"
-      }]
-    }, {
-      "author": "Emily Reif",
-      "affiliations": [{
-        "name": "Google Research",
-        "affiliationURL": "https://research.google/teams/brain/"
-      }]
-    }, {
-      "author": "Adam Pearce",
-      "authorURL": "https://roadtolarissa.com",
-      "affiliations": [{
-        "name": "Google Research",
-        "affiliationURL": "https://research.google/teams/brain/"
-      }]
-    }, {
-      "author": "Alexander B. Wiltschko",
-      "affiliations": [{
-        "name": "Google Research",
-        "affiliationURL": "https://research.google/teams/brain/"
-      }]
+  <script type="text/json">module.exports = {
+  "title": "A Gentle Introduction to Graph Neural Networks",
+  "description": "What components are needed for building learning algorithms that leverage the structure and properties of graphs?",
+  "authors": [{
+    "author": "Benjamin Sanchez-Lengeling",
+    "affiliations": [{
+      "name": "Google Research",
+      "affiliationURL": "https://research.google/teams/brain/"
     }]
-    }
-  </script>
+  }, {
+    "author": "Emily Reif",
+    "affiliations": [{
+      "name": "Google Research",
+      "affiliationURL": "https://research.google/teams/brain/"
+    }]
+  }, {
+    "author": "Adam Pearce",
+    "authorURL": "https://roadtolarissa.com",
+    "affiliations": [{
+      "name": "Google Research",
+      "affiliationURL": "https://research.google/teams/brain/"
+    }]
+  }, {
+    "author": "Alexander B. Wiltschko",
+    "affiliations": [{
+      "name": "Google Research",
+      "affiliationURL": "https://research.google/teams/brain/"
+    }]
+  }]
+};</script>
 </d-front-matter>
 
 
@@ -452,7 +450,8 @@ A perfect model would visibility separate labeled data, but since we are reducin
 <figure>
 <div id="BasicArchitectures"></div>
 <script>var spec = "BasicArchitectures.json";
-vegaEmbed('#BasicArchitectures', spec).then(function (result) {// Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+vegaEmbed('#BasicArchitectures', spec).then(function (result) {
+  // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);</script>
 <figcaption>Scatterplot of each model's performance vs its number of trainable variables. Hover over a point to see the GNN architecture parameters.</figcaption>
 </figure>
@@ -462,7 +461,8 @@ vegaEmbed('#BasicArchitectures', spec).then(function (result) {// Access the Veg
 <figure>
 <div id="ArchitectureNDim"></div>
 <script>var spec = "ArchitectureNDim.json";
-vegaEmbed('#ArchitectureNDim', spec).then(function (result) {// Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+vegaEmbed('#ArchitectureNDim', spec).then(function (result) {
+  // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);</script>
 <figcaption>Aggregate performance of models across varying node, edge, and global dimensions.</figcaption>
 </figure>
@@ -472,7 +472,8 @@ vegaEmbed('#ArchitectureNDim', spec).then(function (result) {// Access the Vega 
 <figure>
 <div id="ArchitectureNLayers"></div>
 <script>var spec = "ArchitectureNLayers.json";
-vegaEmbed('#ArchitectureNLayers', spec).then(function (result) {// Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+vegaEmbed('#ArchitectureNLayers', spec).then(function (result) {
+  // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);</script>
 <figcaption> Chart of number of layers vs model performance, and scatterplot of model performance vs number of parameters. Each point is colored by the number of layers. Hover over a point to see the GNN architecture parameters.</figcaption>
 </figure>
@@ -483,7 +484,8 @@ vegaEmbed('#ArchitectureNLayers', spec).then(function (result) {// Access the Ve
 <figure>
 <div id="ArchitectureAggregation"></div>
 <script>var spec = "ArchitectureAggregation.json";
-vegaEmbed('#ArchitectureAggregation', spec).then(function (result) {// Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+vegaEmbed('#ArchitectureAggregation', spec).then(function (result) {
+  // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);</script>
 <figcaption>Chart of aggregation type vs model performance, and scatterplot of model performance vs number of parameters. Each point is colored by aggregation type. Hover over a point to see the GNN architecture parameters.</figcaption>
 </figure>
@@ -494,7 +496,8 @@ vegaEmbed('#ArchitectureAggregation', spec).then(function (result) {// Access th
 <figure>
 <div id="ArchitectureMessagePassing"></div>
 <script>var spec = "ArchitectureMessagePassing.json";
-vegaEmbed('#ArchitectureMessagePassing', spec).then(function (result) {// Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+vegaEmbed('#ArchitectureMessagePassing', spec).then(function (result) {
+  // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);</script>
 <figcaption>Chart of message passing vs model performance, and scatterplot of model performance vs number of parameters. Each point is colored by message passing. Hover over a point to see the GNN architecture parameters</figcaption>
 </figure>
@@ -607,4 +610,4 @@ Alexander B. Wiltschko provided editing and writing guidance. </p>
 </body>
 
 <p><d-bibliography src="bibliography.bib"></d-bibliography></p>
-<script src="post--gnn-intro.77de5100.js"></script>
+<script src="distill.77de5100.js"></script>

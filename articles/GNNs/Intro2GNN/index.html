@@ -3,15 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/site/assets/js/distill.v2.js"></script>    
-    <script src="/site/assets/js/highlight.js"></script>
+    
+    <script src="https://distill.pub/template.v2.js"></script>
+    <script src="/assets/js/highlight.js"></script>
     <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
     <!-- Import vega-embed -->
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@v6"></script>
+    
+        <link rel="stylesheet" href="/assets/css/gnn-playground.7fda89e6.css">
+    
+        <link rel="stylesheet" href="/assets/css/graph-description-embeddings.95e72025.css">
+    
+        <link rel="stylesheet" href="/assets/css/graph-description.c0d85959.css">
+    
+        <link rel="stylesheet" href="/assets/css/layerwise_trace.d38144f3.css">
+    
+        <link rel="stylesheet" href="/assets/css/mols-as-graph.f8d43714.css">
+    
+        <link rel="stylesheet" href="/assets/css/pca-layers.889c7e67.css">
+    
+        <link rel="stylesheet" href="/assets/css/shuffle-sm.e4a48acb.css">
+    
+        <link rel="stylesheet" href="/assets/css/shuffle.90a7da43.css">
+    
+        <link rel="stylesheet" href="/assets/css/style.e308ff8e.css">
+    
+        <link rel="stylesheet" href="/assets/css/table.0b6daf45.css">
+    
+        <link rel="stylesheet" href="/assets/css/text-as-graph.146f5ac8.css">
+    
 
-    <script src="/site/assets/distill/public/post--gnn-intro.77de5100.js"></script>
+    
+        <script src="/assets/js/distill.77de5100.js"></script>
+    
 
     <!-- Mathjax -->
     <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -23,16 +49,6 @@
     <title>An Introduction to Graph Neural Networks</title>
     <meta name="description" content="Personal website of Bindow">
     <link rel="stylesheet" href="/site/css/style.css">
-    <link rel="stylesheet" href="/site/assets/visualizations/layerwise_trace.css">
-    <link rel="stylesheet" href="/site/assets/visualizations/shuffle.css">
-    <link rel="stylesheet" href="/site/assets/visualizations/text-as-graph.css">
-    <link rel="stylesheet" href="/site/assets/visualizations/pca-layers.css">
-    <link rel="stylesheet" href="/site/assets/visualizations/playground/gnn-playground.css">
-    <link rel="stylesheet" href="/site/assets/visualizations/mols-as-graph.css">
-    <link rel="stylesheet" href="/site/assets/visualizations/shuffle-sm.css">
-    <link rel="stylesheet" href="/site/assets/visualizations/table.css">
-    <link rel="stylesheet" href="/site/assets/visualizations/graph-description.css">
-    <link rel="stylesheet" href="/site/assets/visualizations/graph-description-embeddings.css">
     <!-- Add Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
@@ -61,6 +77,14 @@
     <figcaption>
 Hover over a node in the diagram below to see how it accumulates information from nodes around it through the layers of the network.
     </figcaption>
+</figure>
+<h3 id="text-as-graphs">Text as graphs</h3>
+<p>We can digitize text by associating indices to each character, word, or token, and representing text as a sequence of these indices. This creates a simple directed graph, where each character or index is a node and is connected via an edge to the node that follows it.</p>
+<figure>
+<div id='text-as-graph'></div>
+<figcaption>
+Edit the text above to see how the graph representation changes.
+</figcaption>
 </figure>
 
     </main>
