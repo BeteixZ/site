@@ -39,7 +39,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development parcel index.html --no-hmr --out-dir=./public",
     "start-hmr": "cross-env NODE_ENV=development parcel index.html --out-dir=./public",
-    "build": "cross-env NODE_ENV=production parcel build index.html --no-content-hash --no-minify --public-url ./ --out-dir=./public && bin/build.sh",
+    "build": "cross-env NODE_ENV=production parcel build index.html --no-content-hash --no-optimize --public-url ./ --out-dir=./public && bin/build.sh",
     "clean": "rm -r public"
   },
   "staticFiles": {
