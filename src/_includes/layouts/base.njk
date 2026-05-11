@@ -1,56 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7fafe">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1e26">
+
     <title>{{ title | default("Bindow") }}</title>
-    <meta name="description" content="{{ description | default("Personal website of Bindow") }}">
+    <meta name="description" content="{{ description | default('Personal website of Bindow — Math PhD, music nerd, and astronomy enthusiast') }}">
+    <meta name="author" content="Bindow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ title | default('Bindow') }}">
+    <meta property="og:description" content="{{ description | default('Personal website of Bindow — Math PhD, music nerd, and astronomy enthusiast') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bindow.top{{ page.url }}">
+    <meta property="og:site_name" content="Bindow">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://bindow.top{{ page.url }}">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
-    <!-- Add Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Add favicon (you'll need to create these files) -->
+
+    <!-- Favicon -->
     <link rel="icon" href="{{ '/assets/favicon.ico' | url }}" type="image/x-icon">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Bindow",
+        "url": "https://bindow.top",
+        "author": {
+            "@type": "Person",
+            "name": "Bindow",
+            "url": "https://bindow.top"
+        }
+    }
+    </script>
 </head>
 <body>
-    <header class="nav">
-        <div class="container">
-            <nav>
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="{{ '/' | url }}">Home</a></li>
-                    <li class="nav-item"><a href="{{ '/about/' | url }}">About</a></li>
-                    <li class="nav-item"><a href="{{ '/projects/' | url }}">Projects</a></li>
-                    <li class="nav-item"><a href="{{ '/contact/' | url }}">Contact</a></li>
-                </ul>
+    <a href="#main-content" class="skip-link button">Skip to main content</a>
+
+    <div class="main-wrapper">
+        <main>
+            <!-- Header with site title and social icons -->
+            <header class="main-title">
+                <h1 class="site-title">
+                    <a href="{{ '/' | url }}">Bindow</a>
+                </h1>
+                <nav class="icons" aria-label="Social links">
+                    <a class="icon" href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        <span>GitHub</span>
+                    </a>
+                    <a class="icon" href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer" title="Last.fm" aria-label="Last.fm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg>
+                        <span>Last.fm</span>
+                    </a>
+                </nav>
+            </header>
+
+            <!-- Primary navigation -->
+            <nav class="primary" aria-label="Primary navigation">
+                <a class="button" href="{{ '/' | url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
+                <a class="button" href="{{ '/about/' | url }}" {% if page.url == '/about/' %}class="active"{% endif %}>About</a>
+                <a class="button" href="{{ '/projects/' | url }}" {% if page.url == '/projects/' %}class="active"{% endif %}>Projects</a>
+                <a class="button" href="{{ '/contact/' | url }}" {% if page.url == '/contact/' %}class="active"{% endif %}>Contact</a>
             </nav>
-        </div>
-    </header>
 
-    <main class="container">
-        {{ content | mark | safe }}
-    </main>
+            <!-- Main content -->
+            <div id="main-content" class="default-wrapper">
+                {{ content | mark | safe }}
+            </div>
+        </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>© {{ page.date.getFullYear() if page.date else "2025" }} Bindow. Built with <a href="https://www.11ty.dev/">11ty</a>.</p>
-            <p class="mt-1">
-                <a href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer">GitHub</a> • 
-                <a href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer">Last.fm</a>
-            </p>
-        </div>
-    </footer>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; {{ page.date.getFullYear() if page.date else "2025" }} Bindow. Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">11ty</a>.</p>
+            </div>
+        </footer>
+    </div>
 
-    <!-- Dedicated highlight script for better animation control -->
+    <!-- Highlight animation script -->
     <script src="{{ '/assets/js/highlight.js' | url }}"></script>
-    
-    <!-- Only when url is /site/ excute -->
 
     {% if page.url == '/site/' %}
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // Last.fm badge functionality - this is kept separate from the highlight script
-
-        // Last.fm badge color update
         const badgeImg = document.querySelector('img[src*="shields.io/endpoint"]');
         if (!badgeImg) return;
 
@@ -58,47 +104,39 @@
           try {
             const response = await fetch('https://lastfm-last-played.biancarosa.com.br/Beteix/latest-song');
             const data = await response.json();
-            
+
             const img = new Image();
             img.crossOrigin = 'Anonymous';
             img.src = data.track.image.find(img => img.size === 'small')['#text'];
-            
+
             img.onload = function() {
               const canvas = document.createElement('canvas');
               const ctx = canvas.getContext('2d');
               canvas.width = img.width;
               canvas.height = img.height;
               ctx.drawImage(img, 0, 0);
-              
+
               const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
               const pixels = imageData.data;
-              
               const colorFreq = new Map();
-              
+
               for (let i = 0; i < pixels.length; i += 16) {
                 const r = pixels[i];
                 const g = pixels[i + 1];
                 const b = pixels[i + 2];
-                
                 if ((r + g + b) / 3 < 20 || (r + g + b) / 3 > 235) continue;
-                
                 const key = `${Math.floor(r/16)*16},${Math.floor(g/16)*16},${Math.floor(b/16)*16}`;
                 colorFreq.set(key, (colorFreq.get(key) || 0) + 1);
               }
-              
+
               let dominantColor = '0,0,0';
               let maxFreq = 0;
               for (const [color, freq] of colorFreq.entries()) {
-                if (freq > maxFreq) {
-                  maxFreq = freq;
-                  dominantColor = color;
-                }
+                if (freq > maxFreq) { maxFreq = freq; dominantColor = color; }
               }
-              
+
               const [r, g, b] = dominantColor.split(',').map(Number);
               const color = ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-              
-              // Update badge URL with new color
               const currentUrl = new URL(badgeImg.src);
               currentUrl.searchParams.set('color', color);
               badgeImg.src = currentUrl.toString();
@@ -108,12 +146,10 @@
           }
         }
 
-        // Update initially and every 30 seconds
         updateBadge();
         setInterval(updateBadge, 30000);
       });
     </script>
     {% endif %}
-
 </body>
 </html>
