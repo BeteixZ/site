@@ -27,7 +27,7 @@ description: "Personal website of Bindow — Math PhD, music nerd, and astronomy
 
 <ul class="article-list">
 <li class="article-list-item">
-<h3><a href="/articles/what-if/">如果……</a></h3>
+<h3><a href="/articles/what_if/">如果……</a></h3>
 <div class="article-meta">April 2025</div>
 <p class="article-excerpt">當我看這世界的目光愈發兇惡，它是否也在秘密爲我準備葬禮？</p>
 </li>
