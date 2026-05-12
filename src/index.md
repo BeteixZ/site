@@ -12,7 +12,7 @@ description: "Personal website of Bindow — Math PhD, music nerd, and astronomy
 <aside>
 <time datetime="2026-05-12">May 12, 2026</time>
 <span aria-hidden="true">•</span>
-<a href="/about/">Now</a>
+<a href="about/">Now</a>
 </aside>
 <p>Redesigning this small corner of the web into something quieter, sharper, and easier to wander through.</p>
 </div>
@@ -31,7 +31,7 @@ Recent activity
 </h2>
 
 <div class="media-panel" data-listenbrainz-widget data-listenbrainz-user="Beteix">
-<a href="/music/" class="latest-track-card" data-lb-current>
+<a href="music/" class="latest-track-card" data-lb-current>
 <span class="live-dot" aria-hidden="true"></span>
 <span class="latest-track-copy">
 <span class="eyebrow" data-lb-status>Latest track</span>
@@ -55,9 +55,9 @@ Recent activity
 <aside>
 <time datetime="2025-04">April 2025</time>
 <span aria-hidden="true">•</span>
-<a href="/articles/what_if/">Essay</a>
+<a href="articles/what_if/">Essay</a>
 </aside>
-<h3><a href="/articles/what_if/">如果……</a></h3>
+<h3><a href="articles/what_if/">如果……</a></h3>
 <p>當我看這世界的目光愈發兇惡，它是否也在秘密爲我準備葬禮？</p>
 <div class="badges">
 <span class="badge">writing</span>
@@ -70,9 +70,9 @@ Recent activity
 <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 17.75-6.172 3.245 1.179-6.873-5-4.867 6.9-1L12 2l3.086 6.253 6.9 1-5 4.867 1.179 6.873z"></path></svg>
 <time datetime="2024-04">April 2024</time>
 <span aria-hidden="true">•</span>
-<a href="/articles/when-self-growth-falls-into-the-logic-of-commercial-competition/">Essay</a>
+<a href="articles/when-self-growth-falls-into-the-logic-of-commercial-competition/">Essay</a>
 </aside>
-<h3><a href="/articles/when-self-growth-falls-into-the-logic-of-commercial-competition/">当自我成长落入商品竞争逻辑</a></h3>
+<h3><a href="articles/when-self-growth-falls-into-the-logic-of-commercial-competition/">当自我成长落入商品竞争逻辑</a></h3>
 <p>关于自我成长叙事、商品竞争逻辑和焦虑如何被生产出来。</p>
 <div class="badges">
 <span class="badge">critique</span>
@@ -84,9 +84,9 @@ Recent activity
 <aside>
 <time datetime="2026-05">Ongoing</time>
 <span aria-hidden="true">•</span>
-<a href="/projects/">Research</a>
+<a href="projects/">Research</a>
 </aside>
-<h3><a href="/projects/">PDEs, operator learning, and preconditioners</a></h3>
+<h3><a href="projects/">PDEs, operator learning, and preconditioners</a></h3>
 <p>Collecting research directions where mathematical structure and machine learning can productively meet.</p>
 <div class="badges">
 <span class="badge">math</span>
@@ -103,8 +103,8 @@ Recent activity
 Explore
 </h2>
 <ul>
-<li><a href="/projects/">Research and projects</a></li>
-<li><a href="/about/">Background and interests</a></li>
-<li><a href="/contact/">Ways to reach me</a></li>
+<li><a href="projects/">Research and projects</a></li>
+<li><a href="about/">Background and interests</a></li>
+<li><a href="contact/">Ways to reach me</a></li>
 </ul>
 </article>

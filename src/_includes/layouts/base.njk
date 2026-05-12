@@ -71,9 +71,9 @@
                 ] %}
                 {% for item in navItems %}
                     {% if page.url == item.url %}
-                        <a class="button active" href="{{ item.url }}">{{ item.label }}</a>
+                        <a class="button active" href="{{ item.url | url }}">{{ item.label }}</a>
                     {% else %}
-                        <a class="button" href="{{ item.url }}">{{ item.label }}</a>
+                        <a class="button" href="{{ item.url | url }}">{{ item.label }}</a>
                     {% endif %}
                 {% endfor %}
             </nav>
