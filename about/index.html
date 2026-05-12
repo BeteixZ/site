@@ -1,69 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f1f4">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1e26">
+
     <title>About Me</title>
-    <meta name="description" content="Math PhD, music nerd, and astronomy enthusiast - Learn more about Bindow">
+    <meta name="description" content="Math PhD, music nerd, and astronomy enthusiast — Learn more about Bindow">
+    <meta name="author" content="Bindow">
+
+    <meta property="og:title" content="About Me">
+    <meta property="og:description" content="Math PhD, music nerd, and astronomy enthusiast — Learn more about Bindow">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bindow.top/about/">
+    <meta property="og:site_name" content="Bindow">
+
+    <link rel="canonical" href="https://bindow.top/about/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/site/css/style.css">
-    <!-- Add Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Add favicon (you'll need to create these files) -->
     <link rel="icon" href="/site/assets/favicon.ico" type="image/x-icon">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Bindow",
+        "url": "https://bindow.top",
+        "author": {
+            "@type": "Person",
+            "name": "Bindow",
+            "url": "https://bindow.top"
+        }
+    }
+    </script>
 </head>
 <body>
-    <header class="nav">
-        <div class="container">
-            <nav>
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="/site/">Home</a></li>
-                    <li class="nav-item"><a href="/site/about/">About</a></li>
-                    <li class="nav-item"><a href="/site/projects/">Projects</a></li>
-                    <li class="nav-item"><a href="/site/contact/">Contact</a></li>
-                </ul>
+    <a href="#main-content" class="skip-link button">Skip to main content</a>
+
+    <div class="main-wrapper">
+        <main>
+            <header class="main-title">
+                <h1 class="site-title">
+                    <a href="/site/"><span>Bin</span><span>dow</span></a>
+                </h1>
+                <nav class="icons" aria-label="Social links">
+                    <a class="icon-link" href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        <span>GitHub</span>
+                    </a>
+                    <a class="icon-link" href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer" title="Last.fm" aria-label="Last.fm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg>
+                        <span>Last.fm</span>
+                    </a>
+                </nav>
+            </header>
+
+            <nav class="primary" aria-label="Primary navigation">
+                
+                
+                    
+                        <a class="button" href="/">Home</a>
+                    
+                
+                    
+                        <a class="button" href="/music/">Music</a>
+                    
+                
+                    
+                        <a class="button active" href="/about/">About</a>
+                    
+                
+                    
+                        <a class="button" href="/projects/">Projects</a>
+                    
+                
+                    
+                        <a class="button" href="/contact/">Contact</a>
+                    
+                
             </nav>
-        </div>
-    </header>
 
-    <main class="container">
-        <h1>About Me</h1>
+            <div id="main-content" class="default-wrapper">
+                <section class="intro">
+<p><mark>I'm a mathematics PhD</mark> with a passion for solving complex problems at the intersection of traditional mathematics and modern computation.</p>
+</section>
 <div class="about-section">
-  <h2>Background</h2>
-  <p>I'm a mathematics PhD with a passion for solving complex problems. My current research focuses on applying machine learning techniques to solve partial differential equations, bridging the gap between traditional mathematical methods and modern computational approaches.</p>
+<h2>Background</h2>
+<p>My current research focuses on applying machine learning techniques to solve partial differential equations, bridging the gap between traditional mathematical methods and modern computational approaches. I'm particularly interested in physics-informed neural networks, operator learning, and the mathematical foundations of deep learning.</p>
 </div>
 <div class="about-section">
-  <h2>Interests</h2>
-  <p>Beyond mathematics, I'm deeply interested in:</p>
-  <ul>
-    <li><strong>Music</strong> - From Art Pop to indie, I enjoy diverse genres</li>
-    <li><strong>Astronomy</strong> - Fascinated by the cosmos and its overwhelming elegance</li>
-    <li><strong>Global Climate Systems</strong> - Studying the complex dynamics of our planet's climate</li>
-  </ul>
+<h2>Interests</h2>
+<p>Beyond mathematics, I'm deeply interested in:</p>
+<ul>
+<li><strong>Music</strong> — From Art Pop to indie, I enjoy diverse genres. Check out what I'm <a href="https://www.last.fm/user/Beteix">currently listening to</a>.</li>
+<li><strong>Astronomy</strong> — Fascinated by the cosmos and its overwhelming elegance.</li>
+<li><strong>Global Climate Systems</strong> — Studying the complex dynamics of our planet's climate.</li>
+<li><strong>Philosophy &amp; Critical Theory</strong> — Exploring the intersections of technology, society, and human experience.</li>
+</ul>
 </div>
 <div class="about-section">
-  <h2>This Site</h2>
-  <p>I used to maintain a WordPress website at <a href="https://bindow.top" target="_blank" rel="noopener">bindow.top</a>, but found it unnecessarily complex and resource-intensive. This site is built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">11ty</a>, a simpler and more lightweight static site generator.</p>
-  <p>The design is intentionally minimal, focusing on content and readability while maintaining a distinct aesthetic that reflects my appreciation for clean, functional design.</p>
+<h2>This Site</h2>
+<p>I used to maintain a WordPress website at <a href="https://bindow.top" target="_blank" rel="noopener noreferrer">bindow.top</a>, but found it unnecessarily complex and resource-intensive. This site is built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">11ty</a>, a simpler and more lightweight static site generator.</p>
 </div>
-    </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 Bindow. Built with <a href="https://www.11ty.dev/">11ty</a>.</p>
-            <p class="mt-1">
-                <a href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer">GitHub</a> • 
-                <a href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer">Last.fm</a>
-            </p>
-        </div>
-    </footer>
+            </div>
+        </main>
 
-    <!-- Dedicated highlight script for better animation control -->
+        <footer>
+            <nav class="social" aria-label="Footer links">
+                <a class="icon-link" href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    <span>GitHub</span>
+                </a>
+                <a class="icon-link" href="/site/contact/" title="Contact" aria-label="Contact">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><path d="m22 6-10 7L2 6"></path></svg>
+                    <span>Contact</span>
+                </a>
+                <a class="icon-link" href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer" title="Last.fm" aria-label="Last.fm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                    <span>Music</span>
+                </a>
+            </nav>
+            <nav class="sub-pages" aria-label="Footer navigation">
+                <a href="/site/music/">Music</a>
+                <span aria-hidden="true">•</span>
+                <a href="/site/about/">About</a>
+                <span aria-hidden="true">•</span>
+                <a href="/site/projects/">Projects</a>
+                <span aria-hidden="true">•</span>
+                <a href="/site/contact/">Contact</a>
+            </nav>
+            <p class="footer-note">&copy; 2026 Bindow. Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">11ty</a>.</p>
+        </footer>
+    </div>
+
     <script src="/site/assets/js/highlight.js"></script>
-    
-    <!-- Only when url is /site/ excute -->
-
-    
-
+    <script defer src="/site/js/music.js"></script>
 </body>
 </html>

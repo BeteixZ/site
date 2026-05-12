@@ -1,83 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bindow&#39;s Page</title>
-    <meta name="description" content="Personal website of Bindow - Math PhD, music nerd, and astronomy enthusiast">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f1f4">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1e26">
+
+    <title>Bindow</title>
+    <meta name="description" content="Personal website of Bindow — Math PhD, music nerd, and astronomy enthusiast">
+    <meta name="author" content="Bindow">
+
+    <meta property="og:title" content="Bindow">
+    <meta property="og:description" content="Personal website of Bindow — Math PhD, music nerd, and astronomy enthusiast">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bindow.top/">
+    <meta property="og:site_name" content="Bindow">
+
+    <link rel="canonical" href="https://bindow.top/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/site/css/style.css">
-    <!-- Add Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Add favicon (you'll need to create these files) -->
     <link rel="icon" href="/site/assets/favicon.ico" type="image/x-icon">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Bindow",
+        "url": "https://bindow.top",
+        "author": {
+            "@type": "Person",
+            "name": "Bindow",
+            "url": "https://bindow.top"
+        }
+    }
+    </script>
 </head>
 <body>
-    <header class="nav">
-        <div class="container">
-            <nav>
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="/site/">Home</a></li>
-                    <li class="nav-item"><a href="/site/about/">About</a></li>
-                    <li class="nav-item"><a href="/site/projects/">Projects</a></li>
-                    <li class="nav-item"><a href="/site/contact/">Contact</a></li>
-                </ul>
+    <a href="#main-content" class="skip-link button">Skip to main content</a>
+
+    <div class="main-wrapper">
+        <main>
+            <header class="main-title">
+                <h1 class="site-title">
+                    <a href="/site/"><span>Bin</span><span>dow</span></a>
+                </h1>
+                <nav class="icons" aria-label="Social links">
+                    <a class="icon-link" href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        <span>GitHub</span>
+                    </a>
+                    <a class="icon-link" href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer" title="Last.fm" aria-label="Last.fm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg>
+                        <span>Last.fm</span>
+                    </a>
+                </nav>
+            </header>
+
+            <nav class="primary" aria-label="Primary navigation">
+                
+                
+                    
+                        <a class="button active" href="/">Home</a>
+                    
+                
+                    
+                        <a class="button" href="/music/">Music</a>
+                    
+                
+                    
+                        <a class="button" href="/about/">About</a>
+                    
+                
+                    
+                        <a class="button" href="/projects/">Projects</a>
+                    
+                
+                    
+                        <a class="button" href="/contact/">Contact</a>
+                    
+                
             </nav>
-        </div>
-    </header>
 
-    <main class="container">
-        <div class="home-section">
-  <h1>Welcome to My Corner of the Web</h1>
-  <p>Math PhD. Music nerd. Astronomy enthusiast. Currently working on solving partial differential equations using machine learning.</p>
+            <div id="main-content" class="default-wrapper">
+                <section class="intro">
+<p><mark>I'm a mathematics PhD working around PDEs and machine learning</mark>. I write in Chinese, keep notes on research, listen to far too much music, and occasionally look up long enough to remember the sky is doing beautiful things.</p>
+<article class="content-card status-card">
+<div class="status-card-body">
+<aside>
+<time datetime="2026-05-12">May 12, 2026</time>
+<span aria-hidden="true">•</span>
+<a href="/about/">Now</a>
+</aside>
+<p>Redesigning this small corner of the web into something quieter, sharper, and easier to wander through.</p>
 </div>
-<div class="home-section">
-  <h2 class="home-heading">Currently Listening</h2>
-<p><a href="https://www.last.fm/user/Beteix"><img src="https://img.shields.io/endpoint?color=blueviolet&amp;style=for-the-badge&amp;url=https://lastfm-last-played.biancarosa.com.br/Beteix/latest-song?format=shields.io" alt="Latest Song Played"></a></p>
-  <div class="mt-2 mb-3">
-    <img src="https://api.listenbrainz.org/1/art/designer-top-10/Beteix/this_month/450" alt="My Top Albums This Month" />
-  </div>
+</article>
+<p class="now-playing">
+<mark>Currently listening</mark>
+<span class="content"><a href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer">Beteix on Last.fm</a>, with monthly album obsessions collected below.</span>
+</p>
+</section>
+<article class="home-section">
+<h2 class="section-heading">
+<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"></path></svg>
+Recent activity
+</h2>
+<div class="media-panel" data-listenbrainz-widget data-listenbrainz-user="Beteix">
+<a href="/music/" class="latest-track-card" data-lb-current>
+<span class="live-dot" aria-hidden="true"></span>
+<span class="latest-track-copy">
+<span class="eyebrow" data-lb-status>Latest track</span>
+<strong data-lb-track>Loading recent listen...</strong>
+<span data-lb-artist>ListenBrainz</span>
+</span>
+<span class="latest-track-time" data-lb-time>refreshing</span>
+</a>
+<a href="https://listenbrainz.org/user/Beteix/" target="_blank" rel="noopener noreferrer" class="media-card album-card">
+<span class="meta-text">
+<span class="header">Top albums</span>
+<span class="subheader">This month</span>
+</span>
+<img src="https://api.listenbrainz.org/1/art/designer-top-10/Beteix/this_month/450" alt="My top albums this month">
+</a>
 </div>
-<div class="home-section">
-  <h2 class="home-heading">Recent Writings</h2>
-  <div class="article">
-    <h3 class="mb-1"><a href="/site/articles/what_if/">如果……</a></h3>
-    <div class="article-meta">April 2025</div>
-    <p>我不再相信這個世界……</p>
-  </div>
-  <div class="article">
-    <h3 class="mb-1"><a href="/site/articles/when-self-growth-falls-into-the-logic-of-commercial-competition/">当自我成长落入商品竞争逻辑</a></h3>
-    <div class="article-meta">April 2024</div>
-    <p>When self-growth falls into the logic of commercial competition - an exploration of how modern self-improvement narratives often serve capitalist interests rather than genuine personal development.</p>
-  </div>
+<div class="activity-list">
+<article class="recent-activity">
+<aside>
+<time datetime="2025-04">April 2025</time>
+<span aria-hidden="true">•</span>
+<a href="/articles/what_if/">Essay</a>
+</aside>
+<h3><a href="/articles/what_if/">如果……</a></h3>
+<p>當我看這世界的目光愈發兇惡，它是否也在秘密爲我準備葬禮？</p>
+<div class="badges">
+<span class="badge">writing</span>
+<span class="badge">中文</span>
 </div>
-<div class="home-section">
-  <h2 class="home-heading">Connect & Explore</h2>
-  <ul>
-    <li><a href="/site/projects/">View my research and projects</a></li>
-    <li><a href="/site/about/">Learn more about my background</a></li>
-    <li><a href="/site/contact/">Get in touch</a></li>
-  </ul>
+</article>
+<article class="recent-activity featured">
+<aside>
+<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 17.75-6.172 3.245 1.179-6.873-5-4.867 6.9-1L12 2l3.086 6.253 6.9 1-5 4.867 1.179 6.873z"></path></svg>
+<time datetime="2024-04">April 2024</time>
+<span aria-hidden="true">•</span>
+<a href="/articles/when-self-growth-falls-into-the-logic-of-commercial-competition/">Essay</a>
+</aside>
+<h3><a href="/articles/when-self-growth-falls-into-the-logic-of-commercial-competition/">当自我成长落入商品竞争逻辑</a></h3>
+<p>关于自我成长叙事、商品竞争逻辑和焦虑如何被生产出来。</p>
+<div class="badges">
+<span class="badge">critique</span>
+<span class="badge">philosophy</span>
 </div>
+</article>
+<article class="recent-activity">
+<aside>
+<time datetime="2026-05">Ongoing</time>
+<span aria-hidden="true">•</span>
+<a href="/projects/">Research</a>
+</aside>
+<h3><a href="/projects/">PDEs, operator learning, and preconditioners</a></h3>
+<p>Collecting research directions where mathematical structure and machine learning can productively meet.</p>
+<div class="badges">
+<span class="badge">math</span>
+<span class="badge">ml</span>
+<span class="badge">pde</span>
+</div>
+</article>
+</div>
+</article>
+<article class="home-section link-stack">
+<h2 class="section-heading">
+<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+Explore
+</h2>
+<ul>
+<li><a href="/projects/">Research and projects</a></li>
+<li><a href="/about/">Background and interests</a></li>
+<li><a href="/contact/">Ways to reach me</a></li>
+</ul>
+</article>
 
-    </main>
+            </div>
+        </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 Bindow. Built with <a href="https://www.11ty.dev/">11ty</a>.</p>
-            <p class="mt-1">
-                <a href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer">GitHub</a> • 
-                <a href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer">Last.fm</a>
-            </p>
-        </div>
-    </footer>
+        <footer>
+            <nav class="social" aria-label="Footer links">
+                <a class="icon-link" href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    <span>GitHub</span>
+                </a>
+                <a class="icon-link" href="/site/contact/" title="Contact" aria-label="Contact">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><path d="m22 6-10 7L2 6"></path></svg>
+                    <span>Contact</span>
+                </a>
+                <a class="icon-link" href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer" title="Last.fm" aria-label="Last.fm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                    <span>Music</span>
+                </a>
+            </nav>
+            <nav class="sub-pages" aria-label="Footer navigation">
+                <a href="/site/music/">Music</a>
+                <span aria-hidden="true">•</span>
+                <a href="/site/about/">About</a>
+                <span aria-hidden="true">•</span>
+                <a href="/site/projects/">Projects</a>
+                <span aria-hidden="true">•</span>
+                <a href="/site/contact/">Contact</a>
+            </nav>
+            <p class="footer-note">&copy; 2026 Bindow. Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">11ty</a>.</p>
+        </footer>
+    </div>
 
-    <!-- Dedicated highlight script for better animation control -->
     <script src="/site/assets/js/highlight.js"></script>
-    
-    <!-- Only when url is /site/ excute -->
-
-    
-
+    <script defer src="/site/js/music.js"></script>
 </body>
 </html>
