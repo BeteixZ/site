@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f1f4">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1e26">
 
     <title>{{ title | default("Bindow") }}</title>
     <meta name="description" content="{{ description | default('Personal website of Bindow') }}">
@@ -62,6 +64,7 @@
 
             <nav class="primary" aria-label="Primary navigation">
                 <a class="button" href="{{ '/' | url }}">Home</a>
+                <a class="button" href="{{ '/music/' | url }}">Music</a>
                 <a class="button" href="{{ '/about/' | url }}">About</a>
                 <a class="button" href="{{ '/projects/' | url }}">Projects</a>
                 <a class="button" href="{{ '/contact/' | url }}">Contact</a>
@@ -78,5 +81,6 @@
             </div>
         </footer>
     </div>
+    <script defer src="{{ '/js/music.js' | url }}"></script>
 </body>
 </html>

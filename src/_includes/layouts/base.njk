@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7fafe">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111318">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f1f4">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1e26">
 
     <title>{{ title | default("Bindow") }}</title>
     <meta name="description" content="{{ description | default('Personal website of Bindow — Math PhD, music nerd, and astronomy enthusiast') }}">
@@ -41,20 +41,20 @@
     </script>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="skip-link button">Skip to main content</a>
 
     <div class="main-wrapper">
         <main>
             <header class="main-title">
                 <h1 class="site-title">
-                    <a href="{{ '/' | url }}">Bindow</a>
+                    <a href="{{ '/' | url }}"><span>Bin</span><span>dow</span></a>
                 </h1>
                 <nav class="icons" aria-label="Social links">
-                    <a href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+                    <a class="icon-link" href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                         <span>GitHub</span>
                     </a>
-                    <a href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer" title="Last.fm" aria-label="Last.fm">
+                    <a class="icon-link" href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer" title="Last.fm" aria-label="Last.fm">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg>
                         <span>Last.fm</span>
                     </a>
@@ -64,15 +64,16 @@
             <nav class="primary" aria-label="Primary navigation">
                 {% set navItems = [
                     {url: '/', label: 'Home'},
+                    {url: '/music/', label: 'Music'},
                     {url: '/about/', label: 'About'},
                     {url: '/projects/', label: 'Projects'},
                     {url: '/contact/', label: 'Contact'}
                 ] %}
                 {% for item in navItems %}
                     {% if page.url == item.url %}
-                        <a class="active" href="{{ item.url }}">{{ item.label }}</a>
+                        <a class="button active" href="{{ item.url }}">{{ item.label }}</a>
                     {% else %}
-                        <a href="{{ item.url }}">{{ item.label }}</a>
+                        <a class="button" href="{{ item.url }}">{{ item.label }}</a>
                     {% endif %}
                 {% endfor %}
             </nav>
@@ -82,11 +83,35 @@
             </div>
         </main>
 
-        <footer class="footer">
-            <p>&copy; {{ page.date.getFullYear() if page.date else "2025" }} Bindow. Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">11ty</a>.</p>
+        <footer>
+            <nav class="social" aria-label="Footer links">
+                <a class="icon-link" href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    <span>GitHub</span>
+                </a>
+                <a class="icon-link" href="{{ '/contact/' | url }}" title="Contact" aria-label="Contact">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><path d="m22 6-10 7L2 6"></path></svg>
+                    <span>Contact</span>
+                </a>
+                <a class="icon-link" href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer" title="Last.fm" aria-label="Last.fm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                    <span>Music</span>
+                </a>
+            </nav>
+            <nav class="sub-pages" aria-label="Footer navigation">
+                <a href="{{ '/music/' | url }}">Music</a>
+                <span aria-hidden="true">•</span>
+                <a href="{{ '/about/' | url }}">About</a>
+                <span aria-hidden="true">•</span>
+                <a href="{{ '/projects/' | url }}">Projects</a>
+                <span aria-hidden="true">•</span>
+                <a href="{{ '/contact/' | url }}">Contact</a>
+            </nav>
+            <p class="footer-note">&copy; {{ page.date.getFullYear() if page.date else "2026" }} Bindow. Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">11ty</a>.</p>
         </footer>
     </div>
 
     <script src="{{ '/assets/js/highlight.js' | url }}"></script>
+    <script defer src="{{ '/js/music.js' | url }}"></script>
 </body>
 </html>

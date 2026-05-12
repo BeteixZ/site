@@ -28,5 +28,4 @@ description: "Math PhD, music nerd, and astronomy enthusiast — Learn more abou
 <h2>This Site</h2>
 <p>I used to maintain a WordPress website at <a href="https://bindow.top" target="_blank" rel="noopener noreferrer">bindow.top</a>, but found it unnecessarily complex and resource-intensive. This site is built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">11ty</a>, a simpler and more lightweight static site generator.</p>
 
-<p>The design is intentionally minimal, focusing on content and readability while maintaining a distinct aesthetic that reflects my appreciation for clean, functional design.</p>
 </div>

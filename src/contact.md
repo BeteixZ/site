@@ -5,7 +5,7 @@ description: "Get in touch with Bindow"
 ---
 
 <section class="intro">
-<p><mark>I tend to be anonymous on the internet,</mark> but I'm always open to interesting conversations.</p>
+<p><mark>I'm always open to interesting conversations.</mark></p>
 </section>
 
 <div class="about-section">
@@ -17,9 +17,5 @@ description: "Get in touch with Bindow"
 </ul>
 </div>
 
-<div class="about-section">
-<h2>Elsewhere</h2>
-<p>You can also find me scattered across the internet under the handle <strong>Beteix</strong> or <strong>Bindow</strong>.</p>
-</div>
 
 <p class="text-center mt-4"><em>Love &amp; Peace.</em></p>
