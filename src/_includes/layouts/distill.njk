@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f1f4">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1e26">
+
+    <title>{{ title | default("Bindow") }}</title>
+    <meta name="description" content="{{ description | default('Personal website of Bindow') }}">
+    <meta name="author" content="Bindow">
+
+    <meta property="og:title" content="{{ title | default('Bindow') }}">
+    <meta property="og:description" content="{{ description | default('Personal website of Bindow') }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bindow.top{{ page.url }}">
+    <meta property="og:site_name" content="Bindow">
+
+    <link rel="canonical" href="https://bindow.top{{ page.url }}">
+
     <script src="https://distill.pub/template.v2.js"></script>
     <script src="{{ '/assets/js/highlight.js' }}"></script>
-    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
-    <!-- Import vega-embed -->
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@v6"></script>
+
     {% for cssPath in 'css' | distillFiles %}
         <link rel="stylesheet" href="{{ cssPath }}">
     {% endfor %}
@@ -19,50 +33,54 @@
         <script src="{{ jsPath }}"></script>
     {% endfor %}
 
-    <!-- Mathjax -->
     <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
     </script>
 
-<!-- End Mathjax -->
-    <title>{{ title | default("Bindow") }}</title>
-    <meta name="description" content="{{ description | default("Personal website of Bindow") }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
-    <!-- Add Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Add favicon (you'll need to create these files) -->
     <link rel="icon" href="{{ '/assets/favicon.ico' | url }}" type="image/x-icon">
 </head>
 <body>
-    <header class="nav">
-        <div class="container">
-            <nav>
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="{{ '/' | url }}">Home</a></li>
-                    <li class="nav-item"><a href="{{ '/about/' | url }}">About</a></li>
-                    <li class="nav-item"><a href="{{ '/projects/' | url }}">Projects</a></li>
-                    <li class="nav-item"><a href="{{ '/contact/' | url }}">Contact</a></li>
-                </ul>
+    <a href="#main-content" class="skip-link button">Skip to main content</a>
+
+    <div class="main-wrapper">
+        <main>
+            <header class="main-title">
+                <h1 class="site-title">
+                    <a href="{{ '/' | url }}">Bindow</a>
+                </h1>
+                <nav class="icons" aria-label="Social links">
+                    <a class="icon" href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        <span>GitHub</span>
+                    </a>
+                </nav>
+            </header>
+
+            <nav class="primary" aria-label="Primary navigation">
+                <a class="button" href="{{ '/' | url }}">Home</a>
+                <a class="button" href="{{ '/music/' | url }}">Music</a>
+                <a class="button" href="{{ '/about/' | url }}">About</a>
+                <a class="button" href="{{ '/projects/' | url }}">Projects</a>
+                <a class="button" href="{{ '/contact/' | url }}">Contact</a>
             </nav>
-        </div>
-    </header>
 
-    <main class="container">
-        {{ content | mark | safe }}
-    </main>
+            <div id="main-content" class="default-wrapper">
+                {{ content | mark | safe }}
+            </div>
+        </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>© {{ page.date.getFullYear() if page.date else "2025" }} Bindow. Built with <a href="https://www.11ty.dev/">11ty</a>.</p>
-            <p class="mt-1">
-                <a href="https://github.com/BeteixZ" target="_blank" rel="noopener noreferrer">GitHub</a> • 
-                <a href="https://www.last.fm/user/Beteix" target="_blank" rel="noopener noreferrer">Last.fm</a>
-            </p>
-        </div>
-    </footer>
-
-
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; {{ page.date.getFullYear() if page.date else "2025" }} Bindow. Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">11ty</a>.</p>
+            </div>
+        </footer>
+    </div>
+    <script defer src="{{ '/js/music.js' | url }}"></script>
 </body>
 </html>
