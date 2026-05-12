@@ -29,7 +29,8 @@ export default async function(eleventyConfig) {
     `<img alt="Last.fm" src="https://img.shields.io/endpoint?color=blueviolet&style=for-the-badge&url=https://lastfm-last-played.biancarosa.com.br/Beteix/latest-song?format=shields.io">`
   );
 
-const pathPrefix = process.env.NODE_ENV === 'production' ? '/site' : '';
+const isProdBuild = process.env.NODE_ENV === 'production' || process.env.GITHUB_ACTIONS === 'true';
+const pathPrefix = isProdBuild ? '/site' : '';
 
 eleventyConfig.addFilter('distillFiles', (ext) => {
   const dir = path.join(process.cwd(), 'src', 'assets', ext === 'js' ? 'js' : 'css');
@@ -50,4 +51,3 @@ eleventyConfig.addFilter('distillFiles', (ext) => {
     pathPrefix: pathPrefix
   };
 }
-
