@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="color-scheme" content="light dark">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f1f4">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1e26">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f1f4">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1e26">
 
-    <title>An Introduction to Graph Neural Networks</title>
-    <meta name="description" content="Personal website of Bindow">
-    <meta name="author" content="Bindow">
+<title>An Introduction to Graph Neural Networks</title>
+<meta name="description" content="A comprehensive introduction to graph neural networks, exploring the components needed for building GNNs and the design choices behind them.">
+<meta name="author" content="Bindow">
 
-    <meta property="og:title" content="An Introduction to Graph Neural Networks">
-    <meta property="og:description" content="Personal website of Bindow">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://bindow.top/articles/GNNs/Intro2GNN/">
-    <meta property="og:site_name" content="Bindow">
+<meta property="og:title" content="An Introduction to Graph Neural Networks">
+<meta property="og:description" content="A comprehensive introduction to graph neural networks, exploring the components needed for building GNNs and the design choices behind them.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://bindow.top/articles/GNNs/Intro2GNN/">
+<meta property="og:site_name" content="Bindow">
+<meta property="og:image" content="https://bindow.top/assets/favicon.svg">
 
-    <link rel="canonical" href="https://bindow.top/articles/GNNs/Intro2GNN/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="An Introduction to Graph Neural Networks">
+<meta name="twitter:description" content="A comprehensive introduction to graph neural networks, exploring the components needed for building GNNs and the design choices behind them.">
+<meta name="twitter:image" content="https://bindow.top/assets/favicon.svg">
 
+<link rel="canonical" href="https://bindow.top/articles/GNNs/Intro2GNN/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/site/css/style.css">
+<link rel="icon" href="/site/assets/images/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site/site.webmanifest">
+    
     <script src="https://distill.pub/template.v2.js"></script>
-    <script src="/site/assets/js/highlight.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@v6"></script>
@@ -53,17 +67,10 @@
         <script src="/site/assets/js/distill.77de5100.js"></script>
     
 
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
     </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="/site/css/style.css">
-    <link rel="icon" href="/site/assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <a href="#main-content" class="skip-link button">Skip to main content</a>
@@ -83,18 +90,35 @@
             </header>
 
             <nav class="primary" aria-label="Primary navigation">
-                <a class="button" href="/site/">Home</a>
-                <a class="button" href="/site/music/">Music</a>
-                <a class="button" href="/site/about/">About</a>
-                <a class="button" href="/site/projects/">Projects</a>
-                <a class="button" href="/site/contact/">Contact</a>
-            </nav>
+    
+    
+        
+            <a class="button" href="/site/">Home</a>
+        
+    
+        
+            <a class="button" href="/site/music/">Music</a>
+        
+    
+        
+            <a class="button" href="/site/about/">About</a>
+        
+    
+        
+            <a class="button" href="/site/projects/">Projects</a>
+        
+    
+        
+            <a class="button" href="/site/contact/">Contact</a>
+        
+    
+</nav>
 
             <div id="main-content" class="default-wrapper">
                 <h1>An Introduction to Graph Neural Networks</h1>
 <p>Neural networks have been adapted to leverage the structure and properties of graphs. We explore the components needed for building a graph neural network - and motivate the design choices behind them.</p>
-  <figure class=teaser>
-    <div id=layerwise-trace> </div>
+  <figure class="teaser">
+    <div id="layerwise-trace"> </div>
     <figcaption>
 Hover over a node in the diagram below to see how it accumulates information from nodes around it through the layers of the network.
     </figcaption>
@@ -102,7 +126,7 @@ Hover over a node in the diagram below to see how it accumulates information fro
 <h3 id="text-as-graphs">Text as graphs</h3>
 <p>We can digitize text by associating indices to each character, word, or token, and representing text as a sequence of these indices. This creates a simple directed graph, where each character or index is a node and is connected via an edge to the node that follows it.</p>
 <figure>
-<div id='text-as-graph'></div>
+<div id="text-as-graph"></div>
 <figcaption>
 Edit the text above to see how the graph representation changes.
 </figcaption>
@@ -117,6 +141,6 @@ Edit the text above to see how the graph representation changes.
             </div>
         </footer>
     </div>
-    <script defer src="/site/js/music.js"></script>
+    <script defer="" src="/site/js/music.js"></script>
 </body>
 </html>

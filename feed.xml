@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Bindow&#39;s Blog</title>
+  <link href="https://bindow.top/feed.xml" rel="alternate"/>
+  <link href="https://bindow.top/" rel="alternate" type="text/html"/>
+  <updated>2026-06-11T19:18:23Z</updated>
+  <id>https://bindow.top/</id>
+  <author>
+    <name>Bindow</name>
+  </author>
+  
+  <entry>
+    <title>An Introduction to Graph Neural Networks</title>
+    <link href="https://bindow.top/site/articles/GNNs/Intro2GNN/"/>
+    <updated>2026-06-11T19:18:23Z</updated>
+    <id>https://bindow.top/site/articles/GNNs/Intro2GNN/</id>
+    <content type="html"><h1>An Introduction to Graph Neural Networks</h1>
+<p>Neural networks have been adapted to leverage the structure and properties of graphs. We explore the components needed for building a graph neural network - and motivate the design choices behind them.</p>
+  <figure class="teaser">
+    <div id="layerwise-trace"> </div>
+    <figcaption>
+Hover over a node in the diagram below to see how it accumulates information from nodes around it through the layers of the network.
+    </figcaption>
+</figure>
+<h3 id="text-as-graphs">Text as graphs</h3>
+<p>We can digitize text by associating indices to each character, word, or token, and representing text as a sequence of these indices. This creates a simple directed graph, where each character or index is a node and is connected via an edge to the node that follows it.</p>
+<figure>
+<div id="text-as-graph"></div>
+<figcaption>
+Edit the text above to see how the graph representation changes.
+</figcaption>
+</figure>
+</content>
+  </entry>
+  
+  <entry>
+    <title>如果……</title>
+    <link href="https://bindow.top/site/articles/what_if/"/>
+    <updated>2026-06-11T19:18:23Z</updated>
+    <id>https://bindow.top/site/articles/what_if/</id>
+    <content type="html"><blockquote>
+<p>當我看這世界的目光愈發兇惡，它是否也在秘密爲我準備葬禮？</p>
+</blockquote>
+<p>如果，我被文字奴役、被畫面奴役、被音樂奴役，無處可逃，那我還剩下什麽？</p>
+<p>真切地感受到，我們之間的紐帶已經斷裂，這是成長的陣痛嗎，又或者，我已經成爲無主的垃圾，在死寂的空間中漂流？</p>
+<p>我恨這世界的價值觀，它讓我們變成工作的墳墓。</p>
+<h1>1</h1>
+<p>微弱的烛火在狂风中明灭，在这终日不息肆虐的寒霜中，我发现整个世界都是冰冻着的。当所有人都成为我的敌人，我要毁灭这个世界还是要毁灭自己？</p>
+<p>我从来痛恨上位者的傲慢，是不是那圣杯让我的面目狰狞？</p>
+<p>一直在疑问，从未被解答。</p>
+<p>这几年来，我已经主动放弃了太多的自我，只为了在老师面前做一个乖巧听话的学生，但这些有何意义？我越来越厌倦这种为了名誉和评价而努力的生活。13岁的时候，第一次给电脑装上三系统的快乐; 那个10年前的夏天为TPT翻译文档的热情; 一次玩Mathematica的时候，一个笨蛋高中生在一台破烂的笔记本上探索符号和逻辑的世界... 这一切都被毁灭了，销声匿迹了。那种让人无法阻止的热情和为爱发电的快乐，被这个美好的世界所抹杀。</p>
+<p>幸亏，我还能写下这些文字，我还没有完全死亡，期待有一天这样的力量能帮我撕碎一切丑陋的人和事。我只是想要逃脱罢了，这些愚蠢的东西，请离我远点。</p>
+<p>一想到这些，我的愤怒就愈发无法平息，我需要一场风暴，把我恐怖的能量释放出来。</p>
+<p>这和我的生活大相径庭，因为我已经去了更好的地方，只是我的肉体再也感受不到那种东西。</p>
+<p>为什么恶人可以把他们的控制、变态的心理传染，这种人是值得一个很盛大的下场的。华丽的庆典能让这个世界看到，原来痛苦和快乐如此一体两面，就和他们内心的邪魔一样。</p>
+<p>从一开始，这条路就是被所有人替我决定的，他们只会说好好学习，好了，这已经是学习的尽头了，接下来他们会期望一些更有趣的事，以满足这个社会为他们分配的角色。</p>
+</content>
+  </entry>
+  
+  <entry>
+    <title>当自我成长落入商品竞争逻辑</title>
+    <link href="https://bindow.top/site/articles/when-self-growth-falls-into-the-logic-of-commercial-competition/"/>
+    <updated>2026-06-11T19:18:23Z</updated>
+    <id>https://bindow.top/site/articles/when-self-growth-falls-into-the-logic-of-commercial-competition/</id>
+    <content type="html"><h1>当自我成长落入商品竞争逻辑</h1>
+<blockquote>
+<p>作者：陀思妥利卡拉拉</p>
+</blockquote>
+<p>当代人自我成长的背后，往往是以压榨当下的自己，欲望他人的欲望为逻辑基础的。</p>
+<blockquote>
+<p>&quot;30天读完40本书，拥有强者思维；做对这三件事，瞬间成为大女主。收藏。&quot;</p>
+</blockquote>
+<p>它来自于精英主义对完美的虚构。</p>
+<p>正如鲍德里亚所言，我们并没有获得成长，而只是获得了由外界定义的成长的标志；我们也并没有获得成功，而只是强制地执行了一种关于成功的道德规范。（这也太不道德了）</p>
+<p>大众媒体过度展演的自我成长叙事，总是假借生活的诗性，将人投入商品化的竞争中。</p>
+<blockquote>
+<p>&quot;勇敢的人先享受世界，干杯！&quot;</p>
+</blockquote>
+<p>它利用个体需要通过比较来确认自身价值的倾向，生产欲望、斩获欲望。</p>
+<blockquote>
+<p>&quot;做到这几点，悄悄超越同龄人。&quot;</p>
+</blockquote>
+<p>又利用平等观念的普及，扩展比较的范围。</p>
+<blockquote>
+<p>&quot;什么大专生逆袭哈佛学霸，我应该也行吧？&quot;</p>
+</blockquote>
+<p>这种以自我成长为修辞的成功学，导向的不是成长感，而是==停滞时的自我厌弃感、富有时的匮乏感和进步时的焦虑感。==</p>
+<p>==这种被生产出的欲望，和你认为这个欲望有可能会被实现之间产生的空隙，就是焦虑滋生的地方==。</p>
+<p>同时，当效率被压缩进自我成长维度，它带来的时间恐慌，进一步催化了个体的沮丧。</p>
+<blockquote>
+<p>&quot;一天打三份工，28岁就拿下海滨别墅！我？啥也不是。&quot;</p>
+</blockquote>
+<p>这种扁平化的成长叙事，将人的思维固着在具体且看似使用的价值锚点上，催促人异化为利益世界的商品和工具。</p>
+<p>他们会说，“拜托，我都是为你好！（你得包装自己，才能卖个好价钱！）“</p>
+<p>矛盾的是，他们又鼓励接人以此规训框架为基础，追寻自由。他们会说：&quot;你要有自我的独立性，你要有自己的价值观，你要有自己的人生目标。&quot;</p>
+<p>人们尊崇这样的力量，就像尊崇一种信仰，并赋予这种力量越来越确定的形式。</p>
+<p>当自我成长成为一种目的的时候，它往往暗含着对当下于过去的自我的否定。这时候人的思维是被外在的目的绑架的，所以焦虑也是必然的。</p>
+<p>我们生活的终极基础，始终是以自身为目的，而不是以外在的目的为目的，就像尼采口中的超人，坚毅且自我肯定；或像是齐泽克说的那样，克服自己的方法是认同自己。</p>
+<p>==你可以平凡，可以不那么积极，可以不那么高能量，但你不放弃自己的自主性，也不丢弃自己的自我。==</p>
+<p>如果我们能跳出只以实用和功利为导向的思维方式，重拾主观感受的原始能力，获得对世界和自我的直观洞察，才有可能不会在这种潮流中错过自己真正热爱的东西，由此我们就能创造出生活的艺术，让自我形塑，而不让自我成长，从而扎根到生活的诗性中去。</p>
+</content>
+  </entry>
+</feed>
