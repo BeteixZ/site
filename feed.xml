@@ -3,7 +3,7 @@
   <title>Bindow&#39;s Blog</title>
   <link href="https://bindow.top/feed.xml" rel="alternate"/>
   <link href="https://bindow.top/" rel="alternate" type="text/html"/>
-  <updated>2026-06-11T19:18:23Z</updated>
+  <updated>2026-06-11T19:41:55Z</updated>
   <id>https://bindow.top/</id>
   <author>
     <name>Bindow</name>
@@ -12,7 +12,7 @@
   <entry>
     <title>An Introduction to Graph Neural Networks</title>
     <link href="https://bindow.top/site/articles/GNNs/Intro2GNN/"/>
-    <updated>2026-06-11T19:18:23Z</updated>
+    <updated>2026-06-11T19:41:55Z</updated>
     <id>https://bindow.top/site/articles/GNNs/Intro2GNN/</id>
     <content type="html"><h1>An Introduction to Graph Neural Networks</h1>
 <p>Neural networks have been adapted to leverage the structure and properties of graphs. We explore the components needed for building a graph neural network - and motivate the design choices behind them.</p>
@@ -36,7 +36,7 @@ Edit the text above to see how the graph representation changes.
   <entry>
     <title>如果……</title>
     <link href="https://bindow.top/site/articles/what_if/"/>
-    <updated>2026-06-11T19:18:23Z</updated>
+    <updated>2026-06-11T19:41:55Z</updated>
     <id>https://bindow.top/site/articles/what_if/</id>
     <content type="html"><blockquote>
 <p>當我看這世界的目光愈發兇惡，它是否也在秘密爲我準備葬禮？</p>
@@ -60,7 +60,7 @@ Edit the text above to see how the graph representation changes.
   <entry>
     <title>当自我成长落入商品竞争逻辑</title>
     <link href="https://bindow.top/site/articles/when-self-growth-falls-into-the-logic-of-commercial-competition/"/>
-    <updated>2026-06-11T19:18:23Z</updated>
+    <updated>2026-06-11T19:41:55Z</updated>
     <id>https://bindow.top/site/articles/when-self-growth-falls-into-the-logic-of-commercial-competition/</id>
     <content type="html"><h1>当自我成长落入商品竞争逻辑</h1>
 <blockquote>
