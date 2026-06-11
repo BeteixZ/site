@@ -265,6 +265,10 @@ mark:hover::after {
   padding: 0.03em 0.28em;
 }
 
+.intro > p:first-child mark::after {
+  display: none;
+}
+
 p {
   margin: 1rem 0;
 }
