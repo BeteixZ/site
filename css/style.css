@@ -238,11 +238,24 @@ mark {
   color: var(--heading);
   font-weight: 720;
   padding: 0 0.14em;
-  transition: background 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-mark:hover {
-  background: linear-gradient(transparent 42%, var(--accent-soft) 42%);
+mark::after {
+  background: linear-gradient(90deg, transparent, var(--accent-soft), transparent);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+
+mark:hover::after {
+  transform: translateX(100%);
 }
 
 .intro > p:first-child mark {
