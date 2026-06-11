@@ -67,7 +67,7 @@ body {
   color: var(--text);
   font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.72;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -90,6 +90,13 @@ a {
 
 a:hover {
   color: var(--link-hover);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius);
 }
 
 ::selection {
@@ -198,6 +205,7 @@ main {
   min-height: 2.35rem;
   padding: 0.72rem 0.95rem;
   text-decoration: none;
+  transition: all var(--speed);
 }
 
 .button:hover {
@@ -222,7 +230,7 @@ main {
 
 .intro > p:first-child {
   font-size: 1.11rem;
-  line-height: 1.72;
+  line-height: 1.6;
 }
 
 mark {
@@ -230,6 +238,21 @@ mark {
   color: var(--heading);
   font-weight: 720;
   padding: 0 0.14em;
+  position: relative;
+}
+
+mark::after {
+  background: linear-gradient(90deg, transparent, var(--accent-soft), transparent);
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+:hover > mark::after,
+mark:hover::after {
+  transform: translateX(100%);
 }
 
 .intro > p:first-child mark {
@@ -284,6 +307,18 @@ li + li {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 1rem;
+  transition: border-color var(--speed), box-shadow var(--speed);
+}
+
+.content-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 22px 56px rgba(16, 24, 40, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  .content-card:hover {
+    box-shadow: 0 22px 56px rgba(0, 0, 0, 0.32);
+  }
 }
 
 .content-card h3 {
@@ -404,6 +439,12 @@ aside svg {
 .latest-track-card.is-playing .live-dot {
   background: var(--accent);
   box-shadow: 0 0 0 0.36rem var(--accent-soft);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0.36rem var(--accent-soft); }
+  50% { box-shadow: 0 0 0 0.5rem transparent; }
 }
 
 .latest-track-copy {
@@ -512,6 +553,7 @@ aside svg {
   font-weight: 740;
   min-height: 2.15rem;
   padding: 0.45rem 0.78rem;
+  transition: all var(--speed);
 }
 
 .range-tabs button:hover,
@@ -885,6 +927,13 @@ aside svg {
   font-weight: 700;
   line-height: 1;
   padding: 0.33rem 0.5rem;
+  transition: background var(--speed), border-color var(--speed), color var(--speed);
+}
+
+.badge:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--heading);
 }
 
 .link-stack ul {
@@ -900,6 +949,12 @@ aside svg {
 .link-stack a {
   display: block;
   padding: 0.78rem 0;
+  transition: padding-left var(--speed), color var(--speed);
+}
+
+.link-stack a:hover {
+  padding-left: 0.5rem;
+  color: var(--heading);
 }
 
 .about-section {
@@ -967,6 +1022,18 @@ footer {
   font-size: 0.88rem;
   margin-top: auto;
   padding: 1.4rem 0 2.2rem;
+  position: relative;
+}
+
+footer::before {
+  background: linear-gradient(180deg, transparent, var(--surface-soft));
+  content: "";
+  height: 4rem;
+  left: -1.35rem;
+  pointer-events: none;
+  position: absolute;
+  right: -1.35rem;
+  top: -4rem;
 }
 
 footer .social {
@@ -994,6 +1061,55 @@ footer .social {
 
 .mt-4 {
   margin-top: 1rem;
+}
+
+.recent-activity {
+  border-bottom: 1px solid var(--border);
+  padding: 1.05rem 0;
+  transition: background var(--speed);
+  border-radius: var(--radius);
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  margin-left: -0.6rem;
+  margin-right: -0.6rem;
+}
+
+.recent-activity:hover {
+  background: var(--surface-card);
+}
+
+.back-to-top {
+  align-items: center;
+  background: var(--text);
+  border: none;
+  border-radius: 999px;
+  bottom: 1.5rem;
+  color: var(--surface);
+  cursor: pointer;
+  display: flex;
+  height: 2.8rem;
+  justify-content: center;
+  opacity: 0;
+  position: fixed;
+  right: 1.5rem;
+  transform: translateY(0.6rem);
+  transition: opacity 0.25s ease, transform 0.25s ease, background var(--speed);
+  width: 2.8rem;
+  z-index: 100;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--accent);
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 @media (max-width: 680px) {
