@@ -1,0 +1,26 @@
+---
+permalink: /feed.xml
+eleventyComputed:
+  title: "Bindow's Blog"
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ title }}</title>
+  <link href="https://bindow.top/feed.xml" rel="alternate"/>
+  <link href="https://bindow.top/" rel="alternate" type="text/html"/>
+  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>https://bindow.top/</id>
+  <author>
+    <name>Bindow</name>
+  </author>
+  {%- for post in collections.posts %}
+  {% set absolutePostUrl %}{{ post.url | url | absoluteUrl("https://bindow.top") }}{% endset %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="{{ absolutePostUrl }}"/>
+    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <id>{{ absolutePostUrl }}</id>
+    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | safe }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

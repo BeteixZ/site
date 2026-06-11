@@ -1,5 +1,6 @@
 // eleventy.config.mjs
 import tablerIcons from '@cdransf/eleventy-tabler-icons-filled';
+import pluginRss from '@11ty/eleventy-plugin-rss';
 import fs from 'fs';
 import path from 'path';
 
@@ -7,16 +8,29 @@ export default async function(eleventyConfig) {
   // 复制静态资源
   eleventyConfig.addPassthroughCopy({ 'src/assets/js':  'assets/js' });
   eleventyConfig.addPassthroughCopy({ 'src/assets/css': 'assets/css' });
-  //eleventyConfig.addPassthroughCopy({ 'src/assets/distill': 'assets/distill' });
   eleventyConfig.addPassthroughCopy({ 'src/assets/images': 'assets/images' });
   eleventyConfig.addPassthroughCopy({ 'src/css': 'css' });
   eleventyConfig.addPassthroughCopy({ 'src/js': 'js' });
+  eleventyConfig.addPassthroughCopy({ 'src/site.webmanifest': 'site.webmanifest' });
   eleventyConfig.addPassthroughCopy({ 'src/assets/distill/public/': '/public/articles/G' });
 
   // 插件
   eleventyConfig.addPlugin(tablerIcons, {
     className: 'icon',
     errorOnMissing: true
+  });
+
+  eleventyConfig.addPlugin(pluginRss, {
+    posthtmlRenderOptions: {
+      quoteCharacter: '"',
+    },
+  });
+
+  // Collections
+  eleventyConfig.addCollection("posts", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/articles/**/*.md").sort((a, b) => {
+      return b.date - a.date;
+    });
   });
 
   // 过滤器：==高亮==
@@ -38,10 +52,8 @@ eleventyConfig.addFilter('distillFiles', (ext) => {
   
   return fs
     .readdirSync(dir)
-    .map(f => `${pathPrefix}/assets/${ext === 'js' ? 'js' : 'css'}/${f}`);
+    .map(f => `/assets/${ext === 'js' ? 'js' : 'css'}/${f}`);
 });
-
-  console.log('[11ty] filters registered:', eleventyConfig.filters);
 
   return {
     dir: {

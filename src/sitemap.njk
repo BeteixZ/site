@@ -1,0 +1,18 @@
+---
+permalink: /sitemap.xml
+eleventyComputed:
+  title: "Sitemap"
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {%- for page in collections.all %}
+  {%- if page.url and not page.data.excludeFromSitemap %}
+  <url>
+    <loc>{{ page.url | url | absoluteUrl("https://bindow.top") }}</loc>
+    <lastmod>{{ page.date | dateToRfc3339 }}</lastmod>
+    <changefreq>{{ page.data.changefreq | default("monthly") }}</changefreq>
+    <priority>{{ page.data.priority | default("0.5") }}</priority>
+  </url>
+  {%- endif %}
+  {%- endfor %}
+</urlset>

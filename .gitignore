@@ -3,3 +3,11 @@
 /distill
 /architecture.md
 /Distill架构.md
+/CLAUDE.md
+.mimocode/
+.svelte-kit/
+src/assets/gnn-article/node_modules/
+src/assets/gnn-article/build/
+src/assets/gnn-article/.svelte-kit/
+src/assets/distill/node_modules/
+src/assets/distill/.cache/

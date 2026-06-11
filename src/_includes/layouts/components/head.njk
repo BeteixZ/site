@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f1f4">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1e26">
+
+<title>{{ title | default("Bindow") }}</title>
+<meta name="description" content="{{ description | default('Personal website of Bindow — Math PhD, music nerd, and astronomy enthusiast') }}">
+<meta name="author" content="Bindow">
+
+<meta property="og:title" content="{{ title | default('Bindow') }}">
+<meta property="og:description" content="{{ description | default('Personal website of Bindow — Math PhD, music nerd, and astronomy enthusiast') }}">
+<meta property="og:type" content="{{ ogType | default('website') }}">
+<meta property="og:url" content="https://bindow.top{{ page.url }}">
+<meta property="og:site_name" content="Bindow">
+<meta property="og:image" content="https://bindow.top/assets/favicon.svg">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ title | default('Bindow') }}">
+<meta name="twitter:description" content="{{ description | default('Personal website of Bindow — Math PhD, music nerd, and astronomy enthusiast') }}">
+<meta name="twitter:image" content="https://bindow.top/assets/favicon.svg">
+
+<link rel="canonical" href="https://bindow.top{{ page.url }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">

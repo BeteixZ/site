@@ -2,7 +2,7 @@
 title: "An Introduction to Graph Neural Networks"
 layout: layouts/distill.njk
 permalink: "/articles/GNNs/Intro2GNN/"
-
+description: "A comprehensive introduction to graph neural networks, exploring the components needed for building GNNs and the design choices behind them."
 ---
 
 # An Introduction to Graph Neural Networks

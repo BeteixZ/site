@@ -1,8 +1,16 @@
-<nav class="nav">
-<ul class="nav-list">
-  <li class="nav-item"><a href="{{ '/' | url }}">Home</a></li>
-  <li class="nav-item"><a href="{{ '/about/' | url }}">About</a></li>
-  <li class="nav-item"><a href="{{ '/projects/' | url }}">Projects</a></li>
-  <li class="nav-item"><a href="{{ '/contact/' | url }}">Contact</a></li>
-</ul>
+<nav class="primary" aria-label="Primary navigation">
+    {% set navItems = [
+        {url: '/', label: 'Home'},
+        {url: '/music/', label: 'Music'},
+        {url: '/about/', label: 'About'},
+        {url: '/projects/', label: 'Projects'},
+        {url: '/contact/', label: 'Contact'}
+    ] %}
+    {% for item in navItems %}
+        {% if page.url == item.url %}
+            <a class="button active" href="{{ item.url }}">{{ item.label }}</a>
+        {% else %}
+            <a class="button" href="{{ item.url }}">{{ item.label }}</a>
+        {% endif %}
+    {% endfor %}
 </nav>
