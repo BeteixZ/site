@@ -50,15 +50,18 @@ Space stations · live
   <div class="iss-card content-card">
     <div class="iss-header">
       <span class="live-dot iss-dot" id="iss-dot" aria-hidden="true"></span>
-      <span class="iss-eyebrow">ISS · NORAD 25544 · updates every 5 s</span>
-      <span class="iss-ts" id="iss-ts">—</span>
+      <span class="iss-eyebrow">ISS · Zarya · NORAD 25544</span>
+      <span class="iss-ts" id="iss-ts">connecting…</span>
     </div>
     <div class="iss-grid">
       <div class="iss-stat"><strong id="iss-lat">—</strong><span>Latitude</span></div>
       <div class="iss-stat"><strong id="iss-lon">—</strong><span>Longitude</span></div>
       <div class="iss-stat"><strong id="iss-alt">—</strong><span>Altitude</span></div>
       <div class="iss-stat"><strong id="iss-vel">—</strong><span>Velocity</span></div>
-      <div class="iss-stat"><strong id="iss-vis">—</strong><span>Visibility</span></div>
+      <div class="iss-stat"><strong id="iss-vis">—</strong><span>Sunlight</span></div>
+      <div class="iss-stat"><strong id="iss-period">—</strong><span>Orbital period</span></div>
+      <div class="iss-stat"><strong id="iss-footprint">—</strong><span>Footprint</span></div>
+      <div class="iss-stat"><strong id="iss-orbits">—</strong><span>Orbits / day</span></div>
     </div>
   </div>
 
@@ -66,14 +69,17 @@ Space stations · live
     <div class="iss-header">
       <span class="live-dot css-dot" id="css-dot" aria-hidden="true"></span>
       <span class="iss-eyebrow">CSS · Tiangong · NORAD 48274</span>
-      <span class="iss-ts" id="css-ts">Orbital catalog</span>
+      <span class="iss-ts" id="css-ts">connecting…</span>
     </div>
     <div class="iss-grid">
+      <div class="iss-stat"><strong id="css-lat">—</strong><span>Latitude</span></div>
+      <div class="iss-stat"><strong id="css-lon">—</strong><span>Longitude</span></div>
       <div class="iss-stat"><strong id="css-alt">—</strong><span>Altitude</span></div>
       <div class="iss-stat"><strong id="css-vel">—</strong><span>Velocity</span></div>
-      <div class="iss-stat"><strong id="css-period">—</strong><span>Period</span></div>
+      <div class="iss-stat"><strong id="css-vis">—</strong><span>Sunlight</span></div>
+      <div class="iss-stat"><strong id="css-period">—</strong><span>Orbital period</span></div>
       <div class="iss-stat"><strong id="css-incl">—</strong><span>Inclination</span></div>
-      <div class="iss-stat"><span class="css-no-live">No live API</span><span>Position</span></div>
+      <div class="iss-stat"><strong id="css-orbits">—</strong><span>Orbits / day</span></div>
     </div>
   </div>
 </div>
@@ -90,9 +96,9 @@ Orbital ground tracks
   <div id="orbit-tooltip" class="orbit-tooltip"></div>
   <div class="orbit-legend">
     <span class="orbit-legend-item"><span class="orbit-dot" style="background:#44aaff"></span>ISS (live)</span>
-    <span class="orbit-legend-item"><span class="orbit-dot" style="background:#ff8844"></span>CSS · Tiangong (estimated)</span>
+    <span class="orbit-legend-item"><span class="orbit-dot" style="background:#ff8844"></span>CSS · Tiangong (live)</span>
     <span class="orbit-legend-item"><span class="orbit-dot term-dot"></span>Day/night line</span>
-    <span class="orbit-legend-note">ISS track live · CSS orbit pattern estimated · hover ISS dot for telemetry</span>
+    <span class="orbit-legend-note">Hover a station dot for telemetry · tracks update every 2 min</span>
   </div>
 </div>
 </article>

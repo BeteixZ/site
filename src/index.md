@@ -46,7 +46,7 @@ Recent activity
 <span class="header">Top albums</span>
 <span class="subheader">This month</span>
 </span>
-<img src="https://api.listenbrainz.org/1/art/designer-top-10/Beteix/this_month/450" alt="My top albums this month">
+<img src="https://api.listenbrainz.org/1/art/designer-top-10/Beteix/this_month/450" alt="My top albums this month" loading="lazy">
 </a>
 </div>
 
