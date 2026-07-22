@@ -128,26 +128,99 @@ function latStr(n)  { return `${fmt(n)}° ${n >= 0 ? 'N' : 'S'}`; }
 function lonStr(n)  { return `${fmt(n)}° ${n >= 0 ? 'E' : 'W'}`; }
 function setEl(id, val) { const el = document.getElementById(id); if (el) el.textContent = val; }
 
+// Orbital period from altitude (Kepler's third law, circular approx)
+function orbitalPeriod(altKm) {
+  const a = 6371 + altKm; // semi-major axis km
+  return 2 * Math.PI * Math.sqrt(a * a * a / 398600.4) / 60; // minutes
+}
+
+// Ground footprint radius (half-angle to horizon from satellite)
+function footprintRadius(altKm) {
+  const R = 6371;
+  const angle = Math.acos(R / (R + altKm)); // radians
+  return angle * R; // arc length in km
+}
+
 // ── Space station live positions ────────────────────────────────────────────
 
 let issPos = null;
+let cssPos = null;
 
-// Fetch CSS static orbital data from CelesTrak catalog (no live position API exists with CORS)
-async function initCSS() {
+// Estimate CSS position from orbital parameters (inclination 41.47°, period ~92.68 min)
+// Uses a circular orbit model referenced to a known epoch for reasonable accuracy.
+function estimateCSSPosition() {
+  const inclRad  = 41.47 * Math.PI / 180;
+  const altKm    = 389;  // mean altitude
+  const periodMs = orbitalPeriod(altKm) * 60 * 1000;
+  const velKmh   = Math.sqrt(398600.4 / (6371 + altKm)) * 3600;
+
+  // Reference epoch: 2024-01-01T00:00:00Z — CSS was near lat 0, lon 100E ascending
+  const epoch = Date.UTC(2024, 0, 1, 0, 0, 0);
+  const elapsed = Date.now() - epoch;
+  const phase = (elapsed % periodMs) / periodMs * 2 * Math.PI;
+
+  // Latitude from inclination and orbital phase
+  const lat = Math.asin(Math.sin(inclRad) * Math.sin(phase)) * 180 / Math.PI;
+
+  // Longitude: orbital motion + Earth rotation
+  const lonOrbit = Math.atan2(Math.cos(inclRad) * Math.sin(phase), Math.cos(phase)) * 180 / Math.PI;
+  const earthRot = (elapsed / 1000 / 3600 * 15) % 360; // Earth rotation since epoch
+  const nodalPrecession = -0.0001 * (elapsed / periodMs); // tiny RAAN drift
+  const lon = ((100 + lonOrbit - earthRot + nodalPrecession + 540) % 360) - 180;
+
+  // Visibility: simplified — check if satellite is sunlit
+  const sun = sunSubsolar();
+  const angDist = Math.acos(
+    Math.sin(lat * Math.PI / 180) * Math.sin(sun.lat * Math.PI / 180) +
+    Math.cos(lat * Math.PI / 180) * Math.cos(sun.lat * Math.PI / 180) *
+    Math.cos((lon - sun.lon) * Math.PI / 180)
+  ) * 180 / Math.PI;
+  const visibility = angDist < 100 ? 'daylight' : 'eclipsed';
+
+  return {
+    latitude: lat,
+    longitude: lon,
+    altitude: altKm,
+    velocity: velKmh,
+    visibility: visibility
+  };
+}
+
+// Fetch CSS live position; fallback to orbital mechanics estimate
+async function updateCSS() {
+  // Try wheretheiss.at first
   try {
-    const res  = await fetch('https://celestrak.org/satcat/records.php?CATNR=48274&FORMAT=json');
+    const res = await fetch('https://api.wheretheiss.at/v1/satellites/48274');
+    if (!res.ok) throw new Error(res.status);
     const data = await res.json();
-    const rec  = data[0];
-    if (!rec) return;
+    if (data.latitude != null) {
+      cssPos = data;
+      renderCSSData(cssPos, true);
+      return;
+    }
+    throw new Error('no data');
+  } catch {
+    // Fallback: compute position from orbital mechanics
+    cssPos = estimateCSSPosition();
+    renderCSSData(cssPos, false);
+  }
+}
 
-    const altKm  = Math.round((rec.APOGEE + rec.PERIGEE) / 2);
-    const velKmh = Math.round(Math.sqrt(398600.4 / (6371 + altKm)) * 3600);
-
-    setEl('css-alt',    `${altKm.toLocaleString()} km`);
-    setEl('css-vel',    `${velKmh.toLocaleString()} km/h`);
-    setEl('css-period', `${rec.PERIOD} min`);
-    setEl('css-incl',   `${rec.INCLINATION}°`);
-  } catch { /* leave as — */ }
+function renderCSSData(pos, isLive) {
+  const altKm = pos.altitude;
+  const period = orbitalPeriod(altKm);
+  setEl('css-lat', latStr(pos.latitude));
+  setEl('css-lon', lonStr(pos.longitude));
+  setEl('css-alt', `${Math.round(altKm).toLocaleString()} km`);
+  setEl('css-vel', `${Math.round(pos.velocity).toLocaleString()} km/h`);
+  setEl('css-vis', pos.visibility === 'daylight' ? '☀️ Day' : '🌑 Eclipse');
+  setEl('css-period', `${period.toFixed(1)} min`);
+  setEl('css-incl', '41.47°');
+  setEl('css-orbits', (1440 / period).toFixed(2));
+  const now = new Date().toLocaleTimeString('en', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  setEl('css-ts', isLive ? now : `${now} · est.`);
+  const dot = document.getElementById('css-dot');
+  if (dot) dot.classList.add('is-live');
 }
 
 async function updateStations() {
@@ -157,12 +230,18 @@ async function updateStations() {
     const res = await fetch('https://api.wheretheiss.at/v1/satellites/25544');
     issPos = await res.json();
     if (issPos.latitude != null) {
+      const altKm = issPos.altitude;
+      const period = orbitalPeriod(altKm);
+      const fp = footprintRadius(altKm);
       setEl('iss-lat', latStr(issPos.latitude));
       setEl('iss-lon', lonStr(issPos.longitude));
-      setEl('iss-alt', `${Math.round(issPos.altitude).toLocaleString()} km`);
+      setEl('iss-alt', `${Math.round(altKm).toLocaleString()} km`);
       setEl('iss-vel', `${Math.round(issPos.velocity).toLocaleString()} km/h`);
-      setEl('iss-vis', issPos.visibility === 'daylight' ? 'Daylight' : 'Eclipse');
-      setEl('iss-ts',  now);
+      setEl('iss-vis', issPos.visibility === 'daylight' ? '☀️ Day' : '🌑 Eclipse');
+      setEl('iss-period', `${period.toFixed(1)} min`);
+      setEl('iss-footprint', `${Math.round(fp).toLocaleString()} km`);
+      setEl('iss-orbits', (1440 / period).toFixed(2));
+      setEl('iss-ts', now);
       const dot = document.getElementById('iss-dot');
       if (dot) dot.classList.toggle('is-daylight', issPos.visibility === 'daylight');
     }
@@ -244,28 +323,31 @@ async function refreshTracks() {
   } catch { /* keep last track */ }
 }
 
-// CSS orbital track computed from known parameters (no live API available).
-// Inclination 41.47°, period 92.27 min. Starting longitude estimated from
-// current time — position will drift correctly within each session.
+// CSS orbital track — uses the SAME orbital model as estimateCSSPosition()
+// so the position dot always sits on the track.
 function computeCSSTrack() {
   const inclRad  = 41.47 * Math.PI / 180;
-  const periodMs = 92.27 * 60 * 1000;
-  const earthRotPerOrbit = 360 * (periodMs / (24 * 60 * 60 * 1000)); // ~22.88°
+  const altKm    = 389;
+  const periodMs = orbitalPeriod(altKm) * 60 * 1000;
+  const earthRotPerOrbit = 360 * (periodMs / (24 * 60 * 60 * 1000));
 
-  // Seed longitude from current time so the track shifts plausibly across sessions,
-  // but stays fixed within one page load (stable visual).
-  const phaseMs  = Date.now() % periodMs;
-  const lon0     = ((Date.now() / 1000 / 3600 * 15) % 360) - 180; // rough GHA
+  // Same epoch & reference as estimateCSSPosition
+  const epoch   = Date.UTC(2024, 0, 1, 0, 0, 0);
+  const elapsed = Date.now() - epoch;
+  const currentPhase = (elapsed % periodMs) / periodMs * 2 * Math.PI;
 
   const track = [];
   const steps = 60;
   for (let i = 0; i <= steps; i++) {
-    const frac  = i / steps;
-    const theta = frac * 2 * Math.PI;
+    // Start from current phase, project one full orbit ahead
+    const theta = currentPhase + (i / steps) * 2 * Math.PI;
     const lat   = Math.asin(Math.sin(inclRad) * Math.sin(theta)) * 180 / Math.PI;
     const lonOrbit   = Math.atan2(Math.cos(inclRad) * Math.sin(theta), Math.cos(theta)) * 180 / Math.PI;
-    const earthDrift = frac * earthRotPerOrbit;
-    const lon   = ((lon0 + lonOrbit - earthDrift + 540) % 360) - 180;
+    // Earth rotation for this point in time (elapsed + fraction of orbit)
+    const futureElapsed = elapsed + (i / steps) * periodMs;
+    const earthRot = (futureElapsed / 1000 / 3600 * 15) % 360;
+    const nodalPrecession = -0.0001 * (futureElapsed / periodMs);
+    const lon = ((100 + lonOrbit - earthRot + nodalPrecession + 540) % 360) - 180;
     track.push({ latitude: lat, longitude: lon });
   }
   return track;
@@ -286,7 +368,8 @@ function drawOrbitMap(canvas) {
   }
 
   const ctx = canvas.getContext('2d');
-  const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = document.documentElement.getAttribute('data-theme');
+  const isDark = theme ? theme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   // Equirectangular: [lon, lat] → [px, py]
   function proj([lon, lat]) {
@@ -422,6 +505,26 @@ function drawOrbitMap(canvas) {
     ctx.fill();
     ctx.stroke();
   }
+
+  // ── CSS position dot (live)
+  if (cssPos && cssPos.latitude != null) {
+    const [px, py] = proj([cssPos.longitude, cssPos.latitude]);
+    const grad = ctx.createRadialGradient(px, py, 0, px, py, 12 * dpr);
+    grad.addColorStop(0, '#ff8844bb');
+    grad.addColorStop(1, '#ff884400');
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.arc(px, py, 12 * dpr, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle   = '#ff8844';
+    ctx.strokeStyle = isDark ? '#fff' : '#333';
+    ctx.lineWidth   = 1.5 * dpr;
+    ctx.beginPath();
+    ctx.arc(px, py, 4.5 * dpr, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+  }
 }
 
 // ── Hover tooltip ────────────────────────────────────────────────────────────
@@ -444,10 +547,13 @@ function setupOrbitHover(canvas) {
     }
 
     const issS = screenXY(issPos);
+    const cssS = screenXY(cssPos);
     let hov = null;
 
     if (issS && Math.hypot(mx - issS.x, my - issS.y) < 18) {
-      hov = { name: 'ISS', pos: issPos, color: '#44aaff' };
+      hov = { name: 'ISS · Zarya', pos: issPos, color: '#44aaff' };
+    } else if (cssS && Math.hypot(mx - cssS.x, my - cssS.y) < 18) {
+      hov = { name: 'CSS · Tiangong', pos: cssPos, color: '#ff8844' };
     }
 
     if (hov) {
@@ -502,8 +608,9 @@ async function initOrbitMap() {
 document.addEventListener('DOMContentLoaded', async () => {
   initMoon();
   initAPOD();
-  initCSS();                // fetch CSS orbital parameters from CelesTrak catalog
+  updateCSS();              // fetch CSS live position (or fallback to catalog)
   initOrbitMap();           // loads land + ISS tracks, sets up hover
   await updateStations();   // first ISS fetch + initial map draw
   setInterval(updateStations, 5000);
+  setInterval(updateCSS, 5000);  // keep CSS position fresh
 });

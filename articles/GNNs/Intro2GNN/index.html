@@ -33,6 +33,14 @@
 <link rel="stylesheet" href="/site/css/style.css">
 <link rel="icon" href="/site/assets/images/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/site/site.webmanifest">
+<link rel="alternate" type="application/atom+xml" title="Bindow RSS Feed" href="/site/feed.xml">
+
+<script>
+(function(){
+  var t = localStorage.getItem('theme');
+  if (t) document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
     
     <script src="https://distill.pub/template.v2.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
