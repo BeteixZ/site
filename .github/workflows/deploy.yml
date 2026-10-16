@@ -16,11 +16,17 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: 'npm'
+
+      - name: Use verified npm version
+        run: npm install --global npm@11.17.0
 
       - name: Install root dependencies
         run: npm ci
+
+      - name: Verify interactions and production asset paths
+        run: node --test tests/*.test.mjs
 
       - name: Build site
         run: NODE_ENV=production npm run build
