@@ -57,7 +57,8 @@
         {% include "layouts/components/footer.njk" %}
     </div>
 
-    <script defer src="/js/music.js"></script>
+    <script defer src="/js/music.js?v=records-1"></script>
+    <script defer src="/js/theme.js"></script>
     <script>
     (function(){
       /* Back to top */
@@ -72,23 +73,6 @@
       btn.addEventListener('click',function(){
         window.scrollTo({top:0,behavior:'smooth'});
       });
-
-      /* Theme toggle */
-      var toggle=document.querySelector('.theme-toggle');
-      if(toggle){
-        toggle.addEventListener('click',function(){
-          var root=document.documentElement;
-          var current=root.getAttribute('data-theme');
-          var next;
-          if(current){
-            next=current==='dark'?'light':'dark';
-          }else{
-            next=window.matchMedia('(prefers-color-scheme: dark)').matches?'light':'dark';
-          }
-          root.setAttribute('data-theme',next);
-          localStorage.setItem('theme',next);
-        });
-      }
 
       /* Hamburger menu */
       var navToggle=document.querySelector('.nav-toggle');

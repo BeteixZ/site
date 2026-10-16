@@ -1722,6 +1722,11 @@ footer .social {
 .nav-toggle[aria-expanded="true"] .icon-close { display: block; }
 .nav-toggle[aria-expanded="true"] .icon-menu { display: none; }
 
+/* Keep the mobile control after its base rule in the cascade. */
+@media (max-width: 680px) {
+  .nav-toggle { display: inline-flex; }
+}
+
 /* ── Card entrance animation ───────────────────────────────────────────── */
 
 .reveal {

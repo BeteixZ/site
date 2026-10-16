@@ -23,9 +23,9 @@ description: "Recent listening activity and ListenBrainz statistics from Bindow"
 <button type="button" data-lb-range="year">Year</button>
 </div>
 
-<div class="music-dashboard" data-lb-summary>
-<div class="art-frame art-grid" data-lb-art-grid aria-label="Top album covers">
-<span></span><span></span><span></span><span></span>
+<div class="music-dashboard" data-lb-summary id="listening-summary" role="tabpanel" aria-labelledby="listening-range-week">
+<div class="record-shelf" data-lb-art-grid aria-label="Top album covers" aria-busy="true">
+<div class="record-shelf-placeholder" aria-hidden="true"><span></span><span></span><span></span></div>
 </div>
 
 <div class="summary-panel">
@@ -51,6 +51,7 @@ description: "Recent listening activity and ListenBrainz statistics from Bindow"
 <div class="activity-bars" data-lb-activity-bars aria-label="Listening activity chart"></div>
 </div>
 </div>
+<p class="listening-summary-status" data-lb-summary-status role="status" hidden></p>
 </section>
 
 <article class="home-section">
@@ -80,6 +81,8 @@ Top this range
 </section>
 </div>
 </article>
+
+<link rel="stylesheet" href="/css/record-shelf.css">
 
 <article class="home-section">
 <h2 class="section-heading">
