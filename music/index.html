@@ -29,17 +29,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;600;700&family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/site/css/style.css">
+<link rel="stylesheet" href="/site/css/style.css?v=interactions-1">
+<link rel="stylesheet" href="/site/css/theme.css">
 <link rel="icon" href="/site/assets/images/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/site/site.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Bindow RSS Feed" href="/site/feed.xml">
 
 <script>
 (function(){
-  var t = localStorage.getItem('theme');
-  if (t) document.documentElement.setAttribute('data-theme', t);
+  try {
+    var t = localStorage.getItem('theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (_) {}
 })();
 </script>
+
     
     <script type="application/ld+json">
     {
@@ -135,9 +139,9 @@
 <button type="button" data-lb-range="month">Month</button>
 <button type="button" data-lb-range="year">Year</button>
 </div>
-<div class="music-dashboard" data-lb-summary="">
-<div class="art-frame art-grid" data-lb-art-grid="" aria-label="Top album covers">
-<span></span><span></span><span></span><span></span>
+<div class="music-dashboard" data-lb-summary="" id="listening-summary" role="tabpanel" aria-labelledby="listening-range-week">
+<div class="record-shelf" data-lb-art-grid="" aria-label="Top album covers" aria-busy="true">
+<div class="record-shelf-placeholder" aria-hidden="true"><span></span><span></span><span></span></div>
 </div>
 <div class="summary-panel">
 <div class="summary-eyebrow" data-lb-range-label="">This week</div>
@@ -162,6 +166,7 @@
 <div class="activity-bars" data-lb-activity-bars="" aria-label="Listening activity chart"></div>
 </div>
 </div>
+<p class="listening-summary-status" data-lb-summary-status="" role="status" hidden=""></p>
 </section>
 <article class="home-section">
 <h2 class="section-heading">
@@ -189,6 +194,7 @@ Top this range
 </section>
 </div>
 </article>
+<link rel="stylesheet" href="/site/css/record-shelf.css">
 <article class="home-section">
 <h2 class="section-heading">
 <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
@@ -227,7 +233,8 @@ Recent listens
 </footer>
     </div>
 
-    <script defer="" src="/site/js/music.js"></script>
+    <script defer="" src="/site/js/music.js?v=records-1"></script>
+    <script defer="" src="/site/js/theme.js"></script>
     <script>
     (function(){
       /* Back to top */
@@ -242,23 +249,6 @@ Recent listens
       btn.addEventListener('click',function(){
         window.scrollTo({top:0,behavior:'smooth'});
       });
-
-      /* Theme toggle */
-      var toggle=document.querySelector('.theme-toggle');
-      if(toggle){
-        toggle.addEventListener('click',function(){
-          var root=document.documentElement;
-          var current=root.getAttribute('data-theme');
-          var next;
-          if(current){
-            next=current==='dark'?'light':'dark';
-          }else{
-            next=window.matchMedia('(prefers-color-scheme: dark)').matches?'light':'dark';
-          }
-          root.setAttribute('data-theme',next);
-          localStorage.setItem('theme',next);
-        });
-      }
 
       /* Hamburger menu */
       var navToggle=document.querySelector('.nav-toggle');

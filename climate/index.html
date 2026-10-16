@@ -29,17 +29,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;600;700&family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/site/css/style.css">
+<link rel="stylesheet" href="/site/css/style.css?v=interactions-1">
+<link rel="stylesheet" href="/site/css/theme.css">
 <link rel="icon" href="/site/assets/images/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/site/site.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Bindow RSS Feed" href="/site/feed.xml">
 
 <script>
 (function(){
-  var t = localStorage.getItem('theme');
-  if (t) document.documentElement.setAttribute('data-theme', t);
+  try {
+    var t = localStorage.getItem('theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (_) {}
 })();
 </script>
+
     
     <script type="application/ld+json">
     {
@@ -189,7 +193,8 @@ Milestones
 </footer>
     </div>
 
-    <script defer="" src="/site/js/music.js"></script>
+    <script defer="" src="/site/js/music.js?v=records-1"></script>
+    <script defer="" src="/site/js/theme.js"></script>
     <script>
     (function(){
       /* Back to top */
@@ -204,23 +209,6 @@ Milestones
       btn.addEventListener('click',function(){
         window.scrollTo({top:0,behavior:'smooth'});
       });
-
-      /* Theme toggle */
-      var toggle=document.querySelector('.theme-toggle');
-      if(toggle){
-        toggle.addEventListener('click',function(){
-          var root=document.documentElement;
-          var current=root.getAttribute('data-theme');
-          var next;
-          if(current){
-            next=current==='dark'?'light':'dark';
-          }else{
-            next=window.matchMedia('(prefers-color-scheme: dark)').matches?'light':'dark';
-          }
-          root.setAttribute('data-theme',next);
-          localStorage.setItem('theme',next);
-        });
-      }
 
       /* Hamburger menu */
       var navToggle=document.querySelector('.nav-toggle');

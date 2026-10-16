@@ -30,17 +30,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;600;700&family=Funnel+Display:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/site/css/style.css">
+<link rel="stylesheet" href="/site/css/style.css?v=interactions-1">
+<link rel="stylesheet" href="/site/css/theme.css">
 <link rel="icon" href="/site/assets/images/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/site/site.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Bindow RSS Feed" href="/site/feed.xml">
 
 <script>
 (function(){
-  var t = localStorage.getItem('theme');
-  if (t) document.documentElement.setAttribute('data-theme', t);
+  try {
+    var t = localStorage.getItem('theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (_) {}
 })();
 </script>
+
     
     <script src="https://distill.pub/template.v2.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
